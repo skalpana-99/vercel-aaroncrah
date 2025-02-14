@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #ee93f7;
+    --color-dark: #666666;
+    --color-light: #bbbbbb;
+    --heading-secondary: 60px;
+    --section-space: 120px;
+    --inner-space: 80px;
+    --medium-space: 60px;
+    --small-space: 40px;
+    --xsmall-space: 24px;
+    --text-medium: 18px;
+    --text-24: 24px;
+    --border-radius: 12px;
+  }
+}
+
+@layer utilities {
+  .content-auto {
+    content-visibility: auto;
+  }
+}
+
+@layer components {
+  .ac-list-item-bullet {
+    @apply before:content-[''] before:left-0 before:top-2 before:absolute before:w-[10px] before:h-[10px] before:bg-white relative pl-5 mb-4;
+  }
+}
+
+.book-card-carousel .swiper-pagination {
+  position: unset;
+  padding-top: 6px;
+}
+
+.book-card-carousel .swiper-pagination-bullet {
+  width: 24px;
+  height: 0px;
+  border: 2px solid;
+  border-radius: 5px;
+}
