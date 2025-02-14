@@ -1,9 +1,0 @@
-# Template-specific files that shouldn't be included
-template-setup.mjs
-bitbucket-pipelines.yml
-
-# Development files
-.git
-.github
-.gitignore
-.npmignore 
