@@ -5,13 +5,18 @@ import HeaderV2 from "@/components/ui/HeaderV2";
 import Heading from "@/components/ui/Heading";
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Series",
+  description: "A comprehensive starter template for author websites",
+};
 
 interface PageProps {
   params: { slug: string };
 }
 // Mark as async server component
 export default function SingleSeriesPage({ params }: PageProps) {
-
   const series_slug = params.slug;
   const seriesData = getSeriesBySlug(series_slug);
   const allBooks: Array<BookData> = getSeriesBooksBySlug(series_slug);
@@ -55,16 +60,13 @@ export default function SingleSeriesPage({ params }: PageProps) {
         <div className="container py-20 m-auto max-w-[652px]">
           <div className="px-3 py-2 bg-[#0000001A] font-normal text-[20px] leading-6 w-fit mb-5 uppercase mx-auto mb-3">series</div>
           <h1 className="font-normal text-[80px] leading-[130px] uppercase text-center mb-8">{seriesData?.name}</h1>
-          <p className="font-light text-lg leading-7 text-center"
-            dangerouslySetInnerHTML={{ __html: seriesData?.description ? seriesData?.description : "" }}></p>
+          <p className="font-light text-lg leading-7 text-center" dangerouslySetInnerHTML={{ __html: seriesData?.description ? seriesData?.description : "" }}></p>
         </div>
 
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-xsm gap-y-md">
             {allBooks.map((book, index) => {
               return (
-
-
                 <BookCard
                   key={book.bookId}
                   // key={book.bookId}
@@ -74,13 +76,8 @@ export default function SingleSeriesPage({ params }: PageProps) {
                   series_slug={null}
                   title={book.title}
                 />
-
-
-
-              )
-            })
-
-            }
+              );
+            })}
           </div>
         </div>
 
@@ -106,7 +103,6 @@ export default function SingleSeriesPage({ params }: PageProps) {
             </div>
           </div>
         </section>
-
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Author Website",
+  name: "Aaron Crash",
   description: "Official website for [Author Name]",
   url: process.env.NEXT_PUBLIC_SITE_URL,
   mailerliteKey: process.env.NEXT_MAILERLITE_KEY,
@@ -71,7 +71,7 @@ export const siteConfig = {
     {
       id: 5,
       label: "Author",
-      path: "/author",
+      path: "/about",
     },
     {
       id: 6,

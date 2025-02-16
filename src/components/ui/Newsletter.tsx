@@ -6,7 +6,6 @@ import { Button } from "./Button";
 import { createSubscriber } from "@/actions/createSubscriber";
 import { useFormState } from "react-dom";
 import { getCountry } from "@/utils/helpers";
-import { useEffect, useState } from "react";
 
 interface newsletterProps {
   secondaryTitle?: string;
@@ -26,16 +25,6 @@ const initialState = {
 
 export function Newsletter({ secondaryTitle, primaryTitle, highlightTitle, higlightStyle, coverImage, coverStyle, background, mobileBg }: newsletterProps) {
   const [state, subscribe] = useFormState(createSubscriber, initialState);
-  const [country, setCountry] = useState("");
-
-  useEffect(() => {
-    // Run getCountryClientSide after component mounts (on client)
-    async function getCountryClientSide() {
-      const clientCountry = await getCountry(); // Now it's okay to call getCountry (if it uses browser APIs inside)
-      setCountry(clientCountry);
-    }
-    getCountryClientSide();
-  }, []);
 
   return (
     <div
@@ -46,7 +35,7 @@ export function Newsletter({ secondaryTitle, primaryTitle, highlightTitle, higli
     `}
     >
       {/* Background blur */}
-      <div className={`absolute inset-0 rounded-md backdrop-blur-lg ${mobileBg ? mobileBg : ""}`}></div>
+      <div className={`absolute inset-0 rounded-md backdrop-blur-lg ${mobileBg ? mobileBg : ''}`}></div>
 
       {/* Image newsltter */}
       <div className="max-lg:relative max-lg:h-full flex justify-center max-sm:w-full">
@@ -54,7 +43,7 @@ export function Newsletter({ secondaryTitle, primaryTitle, highlightTitle, higli
           className={`
             z-50
           max-sm:relative max-sm:top-16 sm:absolute sm:top-[60px] sm:left-[40px] lg:left-[70px]
-          max-lg:w-full max-sm:w-[70%] ${coverStyle ? coverStyle : ""}
+          max-lg:w-full max-sm:w-[70%] ${coverStyle ? coverStyle : ''}
         `}
           src={coverImage}
           width={337}
@@ -69,13 +58,13 @@ export function Newsletter({ secondaryTitle, primaryTitle, highlightTitle, higli
         <Heading level={2} size="lg" variant="primaryLight" className="md:leading-[80px] max-sm:text-center">
           {secondaryTitle && <Heading.Text variant="secondaryLight">{secondaryTitle}</Heading.Text>}
           {primaryTitle && <Heading.Text variant="primaryLight">{primaryTitle}</Heading.Text>}
-          {highlightTitle && <Heading.Text className={`text-primary  ${higlightStyle ? higlightStyle : ""}`}>{highlightTitle}</Heading.Text>}
+          {highlightTitle && <Heading.Text className={`text-primary  ${higlightStyle ? higlightStyle : ''}`}>{highlightTitle}</Heading.Text>}
         </Heading>
 
         {/* newsletter Form */}
         <div className="mt-8">
           <form action={subscribe}>
-            <input type="hidden" name="country" value={country} />
+            <input type="hidden" name="country" value={getCountry()} />
             <div>
               <input
                 className={`

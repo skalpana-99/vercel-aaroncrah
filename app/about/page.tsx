@@ -2,7 +2,13 @@ import { Button } from "@/components/ui/Button";
 import HeaderV2 from "@/components/ui/HeaderV2";
 import Heading from "@/components/ui/Heading";
 import { Newsletter } from "@/components/ui/Newsletter";
+import { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "A comprehensive starter template for author websites",
+};
 
 export default function Page() {
   return (

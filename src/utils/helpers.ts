@@ -136,6 +136,8 @@ export function getAllBookFormats() {
 
 }
 
+export const truncateString = (str: any, maxLength: number) => str.length > maxLength ? str.slice(0, maxLength) + "..." : str;
+
 
 // Define types for better type safety
 interface TimezoneInfo {

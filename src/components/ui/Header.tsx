@@ -36,18 +36,18 @@ export default function Header({ isHome }: { isHome?: boolean }) {
                         <ul className="text-[#bbbbbb] flex flex-col gap-2 px-2">
                           {item.submenu.map((subitem: any) => (
                             <li className="text-black" key={subitem.id}>
-                              <a className="w-full block font-normal uppercase" href={subitem.path}>
+                              <Link className="w-full block font-normal uppercase" href={subitem.path}>
                                 {subitem.label}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>
                       </div>
                     </>
                   ) : (
-                    <a className="font-normal uppercase" href={item.path}>
+                    <Link className="font-normal uppercase" href={item.path}>
                       {item.label}
-                    </a>
+                    </Link>
                   )}
                 </li>
               ))}
@@ -63,18 +63,18 @@ export default function Header({ isHome }: { isHome?: boolean }) {
                 <li key={item.id} className={`relative ${item.submenu ? "group" : ""}`}>
                   {item.submenu ? (
                     <>
-                      <a className="flex gap-2 font-normal items-center uppercase" href="/">
+                      <Link className="flex gap-2 font-normal items-center uppercase" href="/">
                         {item.label}
                         <Image src={`/assets/images/dropdown.png`} alt="dropdown-icon" width={15} height={7} />
-                      </a>
+                      </Link>
                       <div className="pt-2">
                         <div className="hidden bg-white group-hover:block min-w-[200px] absolute rounded">
                           <ul className="text-black flex flex-col gap-2 p-4">
                             {item.submenu.map((subitem: any) => (
                               <li className="whitespace-nowrap" key={subitem.id}>
-                                <a className="uppercase font-normal" href={subitem.path}>
+                                <Link className="uppercase font-normal" href={subitem.path}>
                                   {subitem.label}
-                                </a>
+                                </Link>
                               </li>
                             ))}
                           </ul>
@@ -82,9 +82,9 @@ export default function Header({ isHome }: { isHome?: boolean }) {
                       </div>
                     </>
                   ) : (
-                    <a className="uppercase font-normal" href={item.path}>
+                    <Link className="uppercase font-normal" href={item.path}>
                       {item.label}
-                    </a>
+                    </Link>
                   )}
                 </li>
               ))}

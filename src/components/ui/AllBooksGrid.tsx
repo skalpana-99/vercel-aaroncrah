@@ -3,6 +3,7 @@ import Heading from "./Heading";
 import { useBookStore } from "@/store/book-store";
 import { MergedBook } from "@/types/books";
 import BookCard from "./BookCard";
+import { truncateString } from "@/utils/helpers";
 
 export function BookGrid() {
   const paginatedBooks = useBookStore((state) => state.paginatedBooks());
@@ -38,7 +39,7 @@ export function BookGrid() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-xsm gap-y-[48px] md:gap-y-md mt-8 md:mt-sm auto-rows-auto">
         {paginatedBooks.map((book: MergedBook) => (
-          <BookCard key={book.id} cover_image={book.cover_image} title={book.bookTitle} series_name={`${book.series_name} : book ${book.order}`} series_slug={null} bookId={book.book_id} />
+          <BookCard key={book.id} cover_image={book.cover_image} title={truncateString(book.bookTitle, 35)} series_name={`${book.series_name} : book ${book.order}`} series_slug={null} bookId={book.book_id} />
         ))}
       </div>
     </>

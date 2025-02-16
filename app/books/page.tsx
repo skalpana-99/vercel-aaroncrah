@@ -9,6 +9,12 @@ import { BooksPagination } from "@/components/ui/BooksPagination";
 import { getAllBookFormats } from "@/utils/helpers";
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Books",
+  description: "A comprehensive starter template for author websites",
+};
 
 export default async function BooksPage() {
   const bookFormats = getAllBookFormats();
@@ -19,7 +25,7 @@ export default async function BooksPage() {
       <section className="mt-sm md:mt-inner ">
         <div className="container xl:px-0 px-[24px]">
           <Heading level={1} size="lg" className="text-center">
-            <Heading.Text variant="secondaryDark">browse </Heading.Text>
+            <Heading.Text variant="secondaryDark">Browse </Heading.Text>
             <Heading.Text variant="primaryDark">all books</Heading.Text>
           </Heading>
           <div className="mt-8 md:mt-sm md:border-b border-[#cccccc]">
@@ -44,13 +50,13 @@ export default async function BooksPage() {
               <div className="lg:flex">
                 <div>
                   <Heading level={2} size="lg" className="lg:max-w-[574px]">
-                    <Heading.Text variant="secondaryLight">grab the </Heading.Text>
+                    <Heading.Text variant="secondaryLight">Grab the </Heading.Text>
                     <Heading.Text variant="primaryLight">American Dragons: Books 4 - 6 </Heading.Text>
                     <Heading.Text variant="secondaryLight">from amazon</Heading.Text>
                   </Heading>
 
                   <Button className="mt-8 lg:mt-[183px] w-full lg:w-auto" size="small" variant="primaryLight">
-                    buy now
+                    Buy now
                   </Button>
                 </div>
                 <div className="max-lg:mt-[56px] relative lg:w-1/2 lg:flex lg:justify-end">
