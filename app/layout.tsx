@@ -41,7 +41,6 @@ export const metadata: Metadata = {
 
 // Enable static rendering for all pages by default
 export const dynamic = "force-static";
-export const revalidate = 3600; // Revalidate at most every hour
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
