@@ -19,12 +19,6 @@ interface PageProps {
   params: { id: number };
 }
 
-// Generate the list of all possible slugs
-export async function generateStaticParams() {
-  const slugs = [{ id: 1 }, { id: 2 }, { id: 3 }]; // Fetch all slugs from your data source
-  return slugs.map(({ id }) => ({ id }));
-}
-
 export default function SingleBookPage({ params }: PageProps) {
   const [readmore, setReadmore] = useState(false);
   const [height, setHeight] = useState("170px");
