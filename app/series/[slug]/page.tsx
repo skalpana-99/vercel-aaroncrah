@@ -21,44 +21,12 @@ export default function SingleSeriesPage({ params }: PageProps) {
   const seriesData = getSeriesBySlug(series_slug);
   const allBooks: Array<BookData> = getSeriesBooksBySlug(series_slug);
 
-  // const bookIds = bookIdArr.join(",");
-  // console.log(bookIds);
-
-  // try {
-  //   const apiResponse = await booksApi.getBooksByIds({
-  //     bookIds,
-  //   });
-
-  //   const idOrderMap = new Map(bookIdArr.map((id, index) => [id, index]));
-
-  //   books = apiResponse.sort((a, b) => {
-  //     return (idOrderMap.get(a.id.toString()) ?? Infinity) - (idOrderMap.get(b.id.toString()) ?? Infinity);
-  //   });
-  // } catch (err) {
-  //   console.error("Error fetching books:", err);
-  //   error = "Failed to fetch books";
-  // }
-
-  // if (error) {
-  //   return (
-  //     <div className="min-h-screen flex items-center justify-center">
-  //       <div className="text-center space-y-4">
-  //         <h1 className="text-2xl font-bold text-destructive">Error Has Occured</h1>
-  //         <p className="text-muted-foreground">{error}</p>
-  //         <Link href="/" className="inline-block px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors">
-  //           Return Home
-  //         </Link>
-  //       </div>
-  //     </div>
-  //   );
-  // }
-
   return (
     <div>
       <HeaderV2 />
       <div className="xl:px-0 px-[20px]">
         <div className="container py-20 m-auto max-w-[652px]">
-          <div className="px-3 py-2 bg-[#0000001A] font-normal text-[20px] leading-6 w-fit mb-5 uppercase mx-auto mb-3">series</div>
+          <div className="px-3 py-2 bg-[#0000001A] font-normal text-[20px] leading-6 w-fit uppercase mx-auto mb-3">series</div>
           <h1 className="font-normal text-[80px] leading-[130px] uppercase text-center mb-8">{seriesData?.name}</h1>
           <p className="font-light text-lg leading-7 text-center" dangerouslySetInnerHTML={{ __html: seriesData?.description ? seriesData?.description : "" }}></p>
         </div>
@@ -106,4 +74,27 @@ export default function SingleSeriesPage({ params }: PageProps) {
       </div>
     </div>
   );
+}
+
+// Generate the list of all possible slugs
+export async function getStaticPaths() {
+  const slugs = [{ slug: "robot-bangarang" }]; // Fetch all slugs from your data source
+  return {
+    paths: slugs.map((slug) => ({ params: { slug } })),
+    fallback: false, // Ensure no fallback pages are generated
+  };
+}
+
+// Fetch data for each slug at build time
+export async function getStaticProps({ params }: { params: { slug: string } }) {
+  const series_slug = params.slug;
+  const seriesData = getSeriesBySlug(series_slug); // Fetch series data by slug
+  const allBooks = getSeriesBooksBySlug(series_slug); // Fetch books for the series
+
+  return {
+    props: {
+      seriesData,
+      allBooks,
+    },
+  };
 }
