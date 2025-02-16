@@ -77,24 +77,7 @@ export default function SingleSeriesPage({ params }: PageProps) {
 }
 
 // Generate the list of all possible slugs
-export async function getStaticPaths() {
+export async function generateStaticParams() {
   const slugs = [{ slug: "robot-bangarang" }]; // Fetch all slugs from your data source
-  return {
-    paths: slugs.map((slug) => ({ params: { slug } })),
-    fallback: false, // Ensure no fallback pages are generated
-  };
-}
-
-// Fetch data for each slug at build time
-export async function getStaticProps({ params }: { params: { slug: string } }) {
-  const series_slug = params.slug;
-  const seriesData = getSeriesBySlug(series_slug); // Fetch series data by slug
-  const allBooks = getSeriesBooksBySlug(series_slug); // Fetch books for the series
-
-  return {
-    props: {
-      seriesData,
-      allBooks,
-    },
-  };
+  return slugs.map((slug) => ({ slug }));
 }
