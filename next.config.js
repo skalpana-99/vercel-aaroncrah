@@ -3,7 +3,7 @@ const { hostname } = require("os");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Enable static exports for better performance
-  output: "standalone",
+  output: "export",
 
   // Strict mode helps catch bugs early
   reactStrictMode: true,
