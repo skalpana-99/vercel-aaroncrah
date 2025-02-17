@@ -75,9 +75,3 @@ export default function SingleSeriesPage({ params }: PageProps) {
     </div>
   );
 }
-
-// Generate the list of all possible slugs
-export async function generateStaticParams() {
-  const slugs = [{ slug: "robot-bangarang" }]; // Fetch all slugs from your data source
-  return slugs.map(({ slug }) => ({ slug }));
-}
