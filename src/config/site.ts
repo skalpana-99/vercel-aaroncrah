@@ -1,13 +1,7 @@
 export const siteConfig = {
   name: "Aaron Crash",
   description: "Official website for [Author Name]",
-  url: process.env.NEXT_PUBLIC_SITE_URL,
   mailerliteKey: process.env.NEXT_MAILERLITE_KEY,
-  ogImage: "https://your-domain.com/og.jpg",
-  links: {
-    twitter: "https://twitter.com/author",
-    github: "https://github.com/author",
-  },
   navigation: [
     {
       id: 1,
@@ -49,17 +43,26 @@ export const siteConfig = {
         {
           id: 36,
           label: "Audiobooks",
-          path: "/formats/audiobooks",
+          path: {
+            pathname: '/books',
+            query: { format: 'audiobook' },
+          },
         },
         {
           id: 37,
           label: "eBooks",
-          path: "/formats/ebooks",
+          path: {
+            pathname: '/books',
+            query: { format: 'ebook' },
+          },
         },
         {
           id: 38,
           label: "Paperbacks",
-          path: "/formats/paperbacks",
+          path: {
+            pathname: '/books',
+            query: { format: 'print_book_paper_back' },
+          },
         },
       ],
     },
@@ -72,11 +75,6 @@ export const siteConfig = {
       id: 5,
       label: "Author",
       path: "/about",
-    },
-    {
-      id: 6,
-      label: "Links",
-      path: "/links",
     },
   ]
 } as const;

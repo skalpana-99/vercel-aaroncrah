@@ -25,11 +25,6 @@ export default function Footer() {
                     Visual Novels
                   </Link>
                 </li>
-                <li>
-                  <Link className="underline leading-8" href="">
-                    Links
-                  </Link>
-                </li>
               </ul>
             </div>
           </div>

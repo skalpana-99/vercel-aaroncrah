@@ -51,20 +51,27 @@ export const useBookStore = create<BookStore>((set, get) => ({
     if (searchQuery) {
       const lowerCaseQuery = searchQuery.toLowerCase();
       searchedBooks = books.filter((book: MergedBook) => {
-        if (book.bookTitle) {
-          return book.bookTitle.toLowerCase().includes(lowerCaseQuery);
-        }
-        return false;
+        return book.bookTitle?.toLowerCase().includes(lowerCaseQuery) ?? false;
       });
     }
 
-
     // Apply Format Filter
     let formatFilteredBooks = searchedBooks.filter((book: MergedBook) => {
-      const matchesFormat = format === "all" || book.format === format;
-      return matchesFormat;
+      return format === "all" || book.format === format;
     });
 
+    // When format is "all", remove duplicate entries by bookTitle
+    if (format === "all") {
+      const seenTitles = new Set<string>();
+      formatFilteredBooks = formatFilteredBooks.filter((book: MergedBook) => {
+        if (seenTitles.has(book.bookTitle)) {
+          return false;
+        } else {
+          seenTitles.add(book.bookTitle);
+          return true;
+        }
+      });
+    }
 
     // Apply Sorting if sortOrder is set
     let finalFilteredBooks = formatFilteredBooks;
@@ -72,14 +79,12 @@ export const useBookStore = create<BookStore>((set, get) => ({
       finalFilteredBooks = [...formatFilteredBooks].sort((a, b) => {
         const dateA = new Date(a.createDate);
         const dateB = new Date(b.createDate);
-
-        if (sortOrder === "asc") {
-          return dateA.getTime() - dateB.getTime(); // Ascending order
-        } else {
-          return dateB.getTime() - dateA.getTime(); // Descending order
-        }
+        return sortOrder === "asc"
+          ? dateA.getTime() - dateB.getTime()
+          : dateB.getTime() - dateA.getTime();
       });
     }
+
 
     return finalFilteredBooks;
   },

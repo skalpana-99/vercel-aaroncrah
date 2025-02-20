@@ -18,12 +18,12 @@ export function SeriesCard({ title, description, image, link, buttonText, backgr
         <Heading level={3} className="text-center pb-4" variant="primaryLight" size="md">
           {title}
         </Heading>
-        <p className="text-white text-center font-thin leading-[28px] text-[18px]">{description}</p>
+        <p className="text-white text-center font-light leading-[28px] text-[18px]">{description}</p>
         <Button size="small" link={`${link}`} variant="primary" className="mt-8 md:mt-[44px]">
           {buttonText || "Read More"}
         </Button>
       </div>
-      <Image className="mt-sm lg:mt-[48px] mx-auto" src={image} alt="series-image" />
+      <Image className="mt-sm lg:mt-[26px] mx-auto" src={image} alt="series-image" />
     </div>
   );
 }

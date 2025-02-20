@@ -28,15 +28,16 @@ interface HeadingProps extends React.HTMLAttributes<HTMLElement>, VariantProps<t
   className?: string;
   variant?: any;
   size?: any;
+  title?: string;
 }
 
 // Main heading component
-const Heading = ({ level = 1, children, variant, size, className }: HeadingProps) => {
+const Heading = ({ level = 1, title, children, variant, size, className }: HeadingProps) => {
   const validLevel = Math.min(Math.max(1, level), 6);
 
   className = headingVariant({ variant, size, className });
 
-  return React.createElement(`h${validLevel}`, { className }, children);
+  return React.createElement(`h${validLevel}`, { className, title }, children);
 };
 
 // Component for the text within heading

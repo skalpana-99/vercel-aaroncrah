@@ -12,6 +12,7 @@ import series_3 from "@/series-covers/series_3.webp";
 import series_4 from "@/series-covers/series_4.webp";
 import series_5 from "@/series-covers/series_5.png";
 import series_6 from "@/series-covers/series_6.webp";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -68,17 +69,22 @@ export default function HomePage() {
                 </Heading>
                 <p className="font-light text-md text-white leading-[28px] mt-xsm">Aaron Crash is the bestselling author of a high-octane men's adventure novels where good guys destroy douchebag villains to get harems of beautiful women so they can all live happily ever after.</p>
                 <div className="flex gap-4 md:gap-xsm mt-8 md:mt-md max-sm:justify-center">
-                  <Button variant="primaryLight" link="/home">
+                  <Button variant="primaryLight" link="/about">
                     Learn more
                   </Button>
+
                   <div className="flex gap-4 md:gap-xsm">
                     <div className="relative w-[52px] h-[52px] cursor-pointer">
                       <div className="absolute inset-0 bg-white opacity-20"></div>
-                      <Image className="absolute w-[20px] h-[20px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" src="/assets/images/facebook.png" alt="facebook" width={20} height={20} />
+                      <a href="https://www.facebook.com/aaroncrashbooks" target="_blank">
+                        <Image title="Facebook" className="absolute w-[20px] h-[20px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" src="/assets/images/facebook.png" alt="facebook" width={20} height={20} />
+                      </a>
                     </div>
                     <div className="relative w-[52px] h-[52px] cursor-pointer">
                       <div className="absolute inset-0 bg-white opacity-20"></div>
-                      <Image className="absolute w-[20px] h-[20px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" src="/assets/images/patreon.png" alt="facebook" width={20} height={20} />
+                      <a href="https://www.patreon.com/aaroncrashbooks" target="_blank">
+                        <Image title="Patreon" className="absolute w-[20px] h-[20px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" src="/assets/images/patreon.png" alt="facebook" width={20} height={20} />
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -101,9 +107,9 @@ export default function HomePage() {
                   An Adult Visual Novel
                 </Heading.Text>
               </Heading>
-              <p className="max-w-[630px] pb-8 md:pb-[68px] mx-auto  mt-xsm md:mt-8 font-thin text-md leading-[28px] text-center text-white">Dive into immersive storytelling with our visual novels! Explore captivating narratives, stunning visuals, and interactive gameplay on any device. Your next adventure awaits.</p>
+              <p className="max-w-[630px] pb-8 md:pb-[68px] mx-auto  mt-xsm md:mt-8 font-light text-md leading-[28px] text-center text-white">Dive into immersive storytelling with our visual novels! Explore captivating narratives, stunning visuals, and interactive gameplay on any device. Your next adventure awaits.</p>
               <div className="flex justify-center">
-                <Button variant="primaryLight" size="small" link="/home">
+                <Button variant="primaryLight" size="small" link="/visual-novel">
                   Learn more
                 </Button>
               </div>
@@ -134,7 +140,7 @@ export default function HomePage() {
               <Heading.Text variant="primaryDark">series</Heading.Text>
             </Heading>
 
-            <div className="flex flex-col gap-md">
+            <div className="flex flex-col gap-xsm md:gap-md">
               <SeriesCard title="Land of the Lust" description="Sid and two women—his hot MILF professor and his bratty cheerleader crush—are all grabbed by an energy storm and flung to a strange patchwork world, like someone chopped up a thousand planets and quilted them together." background="assets/images/series-covers/series_3_bg.webp" image={series_3} link="/home" buttonText="Coming soon" />
 
               <SeriesCard title="War God's Mantle" description="When Marine Corps pilot Jacob Merely crashes during a routine mission off the coast of Cyprus, he was sure it was game over.After surviving the crash and pulling himself onto the sandy shores of a long-abandoned island, however, Jacob unwittingly stumbles headfirst into the ancient ruins of a dead city." background="assets/images/series-covers/series_4_bg.webp" image={series_4} link="/home" />

@@ -51,7 +51,15 @@ export function filterUniqueBooks(books: BookLocal[]) {
 }
 
 
-export function getFormatsWithCount(books: MergedBook[]) {
+export function getFormatsWithCount(books: MergedBook[], searchTerm?: string) {
+
+  if (searchTerm) {
+    console.log(searchTerm);
+    const lowerCaseQuery = searchTerm.toLowerCase();
+    books = books.filter((book: MergedBook) => {
+      return book.bookTitle?.toLowerCase().includes(lowerCaseQuery) ?? false;
+    });
+  }
   const formatCounts = {
     all: 0,
     PRINT_BOOK_PAPER_BACK: 0,
@@ -66,14 +74,16 @@ export function getFormatsWithCount(books: MergedBook[]) {
   books.forEach((book: MergedBook) => {
     const formatType = book.format as FormatKey;
 
-    formatCounts.all++;
+    // formatCounts.all++;
     if (formatCounts[formatType] !== undefined) {
       formatCounts[formatType]++;
     }
   });
 
+  const all = new Set(books.map(item => item.book_id)).size;
+
   return [
-    { id: "all", label: "All Books", count: formatCounts.all },
+    { id: "all", label: "All Books", count: all },
     { id: "PRINT_BOOK_PAPER_BACK", label: "Paperbacks", count: formatCounts.PRINT_BOOK_PAPER_BACK },
     //{ id: "PRINT_BOOK_HARDCOVER", label: "Hardcovers", count: formatCounts.PRINT_BOOK_HARDCOVER },
     // { id: "PRINT_BOOK_SPECIAL_EDITION", label: "Special Editions", count: formatCounts.PRINT_BOOK_SPECIAL_EDITION },
@@ -124,6 +134,7 @@ export function getAllBookFormats() {
       id: idCounter++,
       format: formatKey.toUpperCase(),
       series_name: book.series.name,
+      series_slug: book.series.slug,
       order: book.series.order,
       book_id: book.bookId,
       bookTitle: book.title,
@@ -139,7 +150,7 @@ export function getAllBookFormats() {
 export const truncateString = (str: any, maxLength: number) => str.length > maxLength ? str.slice(0, maxLength) + "..." : str;
 
 
-// Define types for better type safety
+
 interface TimezoneInfo {
   u?: number;
   d?: number;

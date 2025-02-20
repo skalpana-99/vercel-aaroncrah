@@ -17,4 +17,5 @@ export interface SelectStyles {
     indicatorSeparator: (state: any) => string;
     menu: (state: any) => string;
     singleValue: (state: any) => string;
+
 }

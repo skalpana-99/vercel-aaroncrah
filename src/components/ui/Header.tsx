@@ -51,6 +51,10 @@ export default function Header({ isHome }: { isHome?: boolean }) {
                   )}
                 </li>
               ))}
+              <hr className="mt-2 mb-4" />
+              <span onClick={toggleMobileMenu} className="cursor-pointer">
+                <Search />
+              </span>
             </ul>
           </div>
           <div className="flex items-center ">
@@ -58,7 +62,7 @@ export default function Header({ isHome }: { isHome?: boolean }) {
               <Image className="max-sm:max-w-[160px]" src="/assets/images/logo.png" alt="Logo" width={174} height={32} />
             </Link>
 
-            <ul className="text-[18px] pt-2 hidden lg:flex gap-8 text-[#bbbbbb] lg:ml-[50px] xl:ml-[100px]">
+            <ul className="text-[18px] pt-2 hidden lg:flex gap-8 text-[#bbbbbb] lg:ml-[100px] xl:ml-[150px]">
               {siteConfig.navigation.map((item: any) => (
                 <li key={item.id} className={`relative ${item.submenu ? "group" : ""}`}>
                   {item.submenu ? (
@@ -91,10 +95,12 @@ export default function Header({ isHome }: { isHome?: boolean }) {
             </ul>
           </div>
           <div className="flex gap-6 items-center">
-            <div className="relative flex items-center justify-center lg:hidden cursor-pointer bg-menuBackground  w-[32px] h-[32px] z-10">
-              <Image onClick={toggleMobileMenu} src="/assets/images/hummenu.svg" alt="menu" width={15} height={14} />
+            <div onClick={toggleMobileMenu} className="relative flex items-center justify-center lg:hidden cursor-pointer bg-menuBackground  w-[32px] h-[32px] z-10">
+              <Image src="/assets/images/hummenu.svg" alt="menu" width={15} height={14} />
             </div>
-            <Search />
+            <div className="hidden lg:flex">
+              <Search />
+            </div>
           </div>
         </div>
       </div>

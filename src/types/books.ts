@@ -79,4 +79,5 @@ export interface MergedBook {
     order: number | null;
     stock?: Stock | null;
     series_name: string | null;
+    series_slug: string | null;
 }

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/Button";
+import { ContactForm } from "@/components/ui/ContactForm";
 import HeaderV2 from "@/components/ui/HeaderV2";
 import Heading from "@/components/ui/Heading";
 import { Newsletter } from "@/components/ui/Newsletter";
@@ -50,18 +51,26 @@ export default function Page() {
               <div className="max-w-[384px] mx-auto pt-[48px] text-white">
                 <div>
                   <p className="text-md leading-[28px] font-light text-center mb-4">He's on Facebook a lot, talking to fans and posting cool art</p>
-                  <div className="bg-bg-about-social flex px-4 items-center justify-between">
-                    <p className="text-md font-regular leading-[28px] my-3 uppercase">Follow on Facebook</p>
-                    <Image src="/assets/images/facebook.png" width={24} height={24} alt="facebook-icon" />
-                  </div>
+                  <a href="https://www.facebook.com/aaroncrashbooks" target="_blank">
+                    <div className="bg-bg-about-social flex px-4 items-center justify-between cursor-pointer">
+                      <p className="text-md font-regular leading-[28px] my-3 uppercase">Follow on Facebook</p>
+                      <Image title="Facebook" src="/assets/images/facebook.png" width={24} height={24} alt="facebook-icon" />
+                    </div>
+                  </a>
                 </div>
 
                 <div className="mt-8">
-                  <p className="text-md leading-[28px] font-light text-center mb-4">And if you want to get free stuff and support his work, he's on Patreon:</p>
-                  <div className="bg-bg-about-social flex px-4 items-center justify-between">
-                    <p className="text-md font-regular leading-[28px] my-3 uppercase">join on patreon</p>
-                    <Image src="/assets/images/patreon.png" width={24} height={24} alt="patreon-icon" />
-                  </div>
+                  <p className="text-md leading-[28px] font-light text-center mb-4">
+                    And if you want to get free stuff and support his work,
+                    <br className="hidden md:block" /> he's on Patreon:
+                  </p>
+                  <a href="https://www.patreon.com/aaroncrashbooks" target="_blank">
+                    <div className="bg-bg-about-social flex px-4 items-center justify-between cursor-pointer">
+                      <p className="text-md font-regular leading-[28px] my-3 uppercase">join on patreon</p>
+
+                      <Image title="Patreon" src="/assets/images/patreon.png" width={24} height={24} alt="patreon-icon" />
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -76,27 +85,7 @@ export default function Page() {
         </Heading>
 
         <div className="max-w-[576px] mx-auto mt-[24px] md:mt-[56px] xl:px-0 px-[24px]">
-          <form action="">
-            <div className="flex flex-col gap-xsm">
-              <div>
-                <input className="w-full h-[52px] bg-mute-3 uppercase focus:outline-none focus:ring-0 focus:border-mute-2 border-mute-2 text-mute placeholder:text-mute" type="text" placeholder="Name" />
-              </div>
-              <div>
-                <input className="w-full h-[52px] bg-mute-3 uppercase focus:outline-none focus:ring-0 focus:border-mute-2 border-mute-2 text-mute placeholder:text-mute" type="text" placeholder="Email" />
-              </div>
-              <div>
-                <input className="w-full h-[52px] bg-mute-3 uppercase focus:outline-none focus:ring-0 focus:border-mute-2 border-mute-2 text-mute placeholder:text-mute" type="text" placeholder="What's your favorite Aaron Crash book?" />
-              </div>
-              <div>
-                <textarea className="w-full  bg-mute-3 uppercase focus:outline-none resize-none focus:ring-0 focus:border-mute-2 border-mute-2 text-mute placeholder:text-mute" placeholder="your message here" rows={8}></textarea>
-              </div>
-            </div>
-            <div>
-              <Button type="submit" variant="primary" size="full" className="mt-8">
-                Submit
-              </Button>
-            </div>
-          </form>
+          <ContactForm />
         </div>
       </section>
 

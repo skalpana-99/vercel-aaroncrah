@@ -7,7 +7,7 @@ import Image from "next/image";
 const selectStyles: SelectStyles = {
   control: () => "!border-0 !shadow-none !text-black cursor-pointer font-light !cursor-pointer uppercase",
   indicatorSeparator: () => "hidden",
-  menu: () => "!w-[200px] text-black font-light",
+  menu: () => "!w-[250px] text-black font-light",
   singleValue: () => "!text-black font-light",
 };
 

@@ -23,8 +23,8 @@ const SearchBar = () => {
 
     isSearchOpen && closeSearch();
 
-    setSearchQuery(searchTerm);
-    router.push("/books");
+    // setSearchQuery(searchTerm);
+    router.push(`/books?search=${searchTerm}`);
   };
 
   useEffect(() => {
