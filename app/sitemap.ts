@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import booksData from '@/data/books.json'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default function sitemap() {
 
 
     const bookIds = booksData.map((book) => book.bookId)
