@@ -14,9 +14,6 @@ export default function FormatTabs({ books }: { books: MergedBook[] }) {
   const format = searchParams.get("format");
   const [isOpen, setIsOpen] = useState(false);
   const [activeFormat, setActiveFormat] = useState("all");
-  const searchQuery = useBookStore((state) => state.searchQuery);
-  const filteredBooks = useBookStore((state) => state.filteredBooks());
-  // let formats;
   const searchParam = searchParams.get("search");
   const searchQry = searchParam ? `&search=${searchParam}` : "";
 
@@ -34,22 +31,13 @@ export default function FormatTabs({ books }: { books: MergedBook[] }) {
     router.push(`?format=${formatId.toLowerCase()}${searchQry}`, { scroll: false });
   };
 
-  // if (searchQuery) {
-  //   formats = useMemo(() => getFormatsWithCount(filteredBooks), [searchQuery]);
-  // } else {
-  //   formats = useMemo(() => getFormatsWithCount(books), [books]);
-  // }
-
   const formats = useMemo(() => {
-    // console.log(filteredBooks);
     if (searchParam) {
       return getFormatsWithCount(books, searchParam);
     } else {
       return getFormatsWithCount(books);
     }
   }, [searchParam, books]);
-
-  // console.log(books);
 
   const activeLabel = formats.find((f) => f.id === activeFormat)?.label;
 

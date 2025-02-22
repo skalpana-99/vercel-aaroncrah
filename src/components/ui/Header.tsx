@@ -67,7 +67,7 @@ export default function Header({ isHome }: { isHome?: boolean }) {
                 <li key={item.id} className={`relative ${item.submenu ? "group" : ""}`}>
                   {item.submenu ? (
                     <>
-                      <Link className="flex gap-2 font-normal items-center uppercase" href="/">
+                      <Link className="flex gap-2 font-normal items-center uppercase hover:text-white" href="/">
                         {item.label}
                         <Image src={`/assets/images/dropdown.png`} alt="dropdown-icon" width={15} height={7} />
                       </Link>
@@ -86,7 +86,7 @@ export default function Header({ isHome }: { isHome?: boolean }) {
                       </div>
                     </>
                   ) : (
-                    <Link className="uppercase font-normal" href={item.path}>
+                    <Link className="uppercase font-normal hover:text-white" href={item.path}>
                       {item.label}
                     </Link>
                   )}

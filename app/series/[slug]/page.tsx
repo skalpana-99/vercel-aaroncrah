@@ -9,18 +9,19 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Series",
-  description: "A comprehensive starter template for author websites",
+  title: " Book Series by Aaron Crash",
+  description: "It's time to discover your next favorite science fiction or fantasy series. Dive into the worlds of author Aaron Crash today",
 };
 
 interface PageProps {
   params: { slug: string };
 }
-// Mark as async server component
+
 export default function SingleSeriesPage({ params }: PageProps) {
   const series_slug = params.slug;
   const seriesData = getSeriesBySlug(series_slug);
   const allBooks: Array<BookData> = getSeriesBooksBySlug(series_slug);
+
   if (!seriesData) {
     notFound();
   }
@@ -29,11 +30,10 @@ export default function SingleSeriesPage({ params }: PageProps) {
     <div>
       <HeaderV2 />
       <div className="xl:px-0 px-[20px]">
-        <div className="container pt-10 md:pt-20 pb-8 md:pb-20 m-auto max-w-[652px]">
+        <div className="container pt-10 md:pt-20 pb-8 md:pb-20 m-auto">
           <div className="px-3 py-2 bg-[#0000001A] font-normal text-[20px] leading-6 w-fit uppercase mx-auto mb-3">series</div>
           <h1 className="font-normal text-[40px] md:text-[80px] leading-[56px] md:leading-[130px] uppercase text-center mb-6 md:mb-8">{seriesData?.name}</h1>
-          <p className="font-light text-lg leading-7 text-center"
-            dangerouslySetInnerHTML={{ __html: seriesData?.description ? seriesData?.description : "" }}></p>
+          <p className="max-w-[652px] font-light text-lg leading-7 text-center m-auto" dangerouslySetInnerHTML={{ __html: seriesData?.description ? seriesData?.description : "" }}></p>
         </div>
 
         <div className="container mx-auto">
@@ -42,9 +42,8 @@ export default function SingleSeriesPage({ params }: PageProps) {
               return (
                 <BookCard
                   key={book.bookId}
-                  // key={book.bookId}
                   bookId={book.bookId}
-                  cover_image={book.image ? `/assets/images/books/${book.image}` : ""}
+                  cover_image={book.image ? book.image : ""}
                   series_name={`Book ${index + 1}`}
                   series_slug={null}
                   title={book.title}
@@ -65,9 +64,7 @@ export default function SingleSeriesPage({ params }: PageProps) {
                     <Heading.Text variant="secondaryLight">from amazon</Heading.Text>
                   </Heading>
 
-                  {/* <p className="mt-inner text-primary text-[80px] leading-[72px]"></p> */}
-
-                  <Button className="mt-8 max-lg:mb-14 lg:mt-auto lg:max-w-[100px]" size="small" variant="primaryLight">
+                  <Button link="https://a.co/d/dxZUzyr" target="_blank" className="mt-8 max-lg:mb-14 lg:mt-auto lg:max-w-[100px] hover:shadow-[5px_5px_20px_#000000] transition duration-200" size="small" variant="primaryLight">
                     buy now
                   </Button>
                 </div>

@@ -28,44 +28,30 @@ export function FilterControls() {
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
   const [activeFormat, setActiveFormat] = useState("all");
 
-  const filteredBooks = useBookStore((state) => state.filteredBooks());
-  const { books, setFormat, setSortOrder, searchQuery } = useBookStore();
+  const { books, setFormat, setSortOrder } = useBookStore();
 
   const searchParams = useSearchParams();
-  // const format = searchParams.get("format");
+  const format = searchParams.get("format");
   const router = useRouter();
   const searchParam = searchParams.get("search");
-  const searchQry = searchParam ? `&search=${searchParam}` : '';
+  const searchQry = searchParam ? `&search=${searchParam}` : "";
 
-  // useEffect(() => {
-  //   if (format) {
-  //     const bookFormat: string = format === 'ALL' ? 'all' : format;
-  //     const formatUpper = format.toUpperCase();
-  //     const bookFormat: string = formatUpper === 'ALL' ? 'all' : formatUpper;
-  //     // setFormat(bookFormat);
-  //     // setActiveFormat(bookFormat);
-  //     // setIsOpen(false);
-  //   }
-  // }, [format]);
-
-  // let formats;
-  // if (searchQuery) {
-  //   formats = useMemo(() => getFormatsWithCount(filteredBooks), [searchQuery]);
-  // } else {
-  //   formats = useMemo(() => getFormatsWithCount(books), [books]);
-  // }
+  useEffect(() => {
+    if (format) {
+      const formatUpper = format.toUpperCase();
+      const bookFormat: string = formatUpper === "ALL" ? "all" : formatUpper;
+      setFormat(bookFormat);
+      setActiveFormat(bookFormat);
+    }
+  }, [format]);
 
   const formats = useMemo(() => {
-    // console.log(filteredBooks);
     if (searchParam) {
       return getFormatsWithCount(books, searchParam);
     } else {
       return getFormatsWithCount(books);
     }
-
   }, [searchParam, books]);
-
-
 
   const activeLabel = formats.find((f) => f.id === activeFormat)?.label;
 
@@ -92,10 +78,8 @@ export function FilterControls() {
   const handleFormatChange = (newValue: SingleValue<Option>) => {
     // Update the format filter in the store
     const format = newValue?.value || "all";
-    // setActiveFormat(format);
-    // setFormat(format);
+    setActiveFormat(format);
     setIsFilterOpen(false);
-    // router.push(`?format=${format}`, { scroll: false });
     router.push(`?format=${format.toLowerCase()}${searchQry}`, { scroll: false });
   };
 

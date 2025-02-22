@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/Button";
 import { ContactForm } from "@/components/ui/ContactForm";
 import HeaderV2 from "@/components/ui/HeaderV2";
 import Heading from "@/components/ui/Heading";
@@ -7,11 +6,11 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "About",
-  description: "A comprehensive starter template for author websites",
+  title: "All about Aaron Crash - science fiction and fantasy author",
+  description: "Aaron Crash is the best-selling author of high-octane spicy men's adventures novels that take place in thrilling science fiction and fantasy worlds",
 };
 
-export default function Page() {
+export default async function Page() {
   return (
     <>
       <HeaderV2 />

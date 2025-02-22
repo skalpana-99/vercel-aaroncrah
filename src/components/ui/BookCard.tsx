@@ -16,10 +16,10 @@ interface BookParams {
 
 export default function BookCard({ cover_image, title, series_name, series_slug, bookId, isSelected, attribTitle }: BookParams) {
   return (
-    <div className={``}>
-      <div className="relative h-[384px] bg-book-card">
-        <Image fill objectFit="contain" src="/assets/images/books/book3.png" alt={title} className="p-4" />
-        {isSelected && <div className="text-[#EE93F7] font-normal text-base leading-6 py-[10px] px-4 bg-[#FFFFFF] w-fit absolute top-6 left-6 uppercase">currently viewing</div>}
+    <div className={`${cover_image}`}>
+      <div className="relative flex w-full lg:max-w-[384px] aspect-[1] lg:max-h-[384px] border border-solid border-[#d3d3d3]">
+        <Image src={`/assets/images/books/${cover_image.trim() !== "" ? cover_image : 'no-book.png'}`} alt={title} width={468} height={468} objectFit="contain" className="w-full lg:w-full lg:max-w-[384px] lg:max-h-[384px] my-auto aspect-[1]" />
+        {isSelected && <div className="text-[#EE93F7] font-normal text-base leading-6 py-[10px] px-4 bg-[#FFFFFF] w-fit absolute top-6 left-6 uppercase border border-solid border-[#d3d3d3]">currently viewing</div>}
       </div>
       <div className="mt-[20px] text-center">
         {series_slug ? (
@@ -27,7 +27,7 @@ export default function BookCard({ cover_image, title, series_name, series_slug,
             <p className="uppercase text-primary text-8 leading-xsm">{series_name}</p>
           </Link>
         ) : (
-          <p className="uppercase text-primary text-8 leading-xsm">{series_name}</p>
+          <p className="uppercase text-primary text-8 leading-xsm">{series_name ? series_name : (<>&nbsp;</>)}</p>
         )}
 
         <Heading title={attribTitle} level={3} size="sm" className="mt-2 overflow-hidden whitespace-nowrap text-ellipsis">

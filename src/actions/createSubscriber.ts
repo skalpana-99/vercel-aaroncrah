@@ -28,7 +28,7 @@ export async function createSubscriber(
                     name: name,
                     country: country_name,
                 },
-                groups: ['145654637054133371'], // subscribers group
+                groups: ['146888835371894631'], // Newsletter group
             }),
             headers: {
                 'Content-Type': 'application/json',

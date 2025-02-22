@@ -32,7 +32,7 @@ export async function createContact(
                     favorite_book: fav_book,
                     message: message
                 },
-                groups: ['145654637054133371'], // subscribers group
+                groups: ['146888857452807390'], // Arc team group
             }),
             headers: {
                 'Content-Type': 'application/json',

@@ -5,8 +5,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Visual Novel",
-  description: "A comprehensive starter template for author websites",
+  title: "Step into the world of Mask City - an Adult Visual Novel",
+  description: "Mask City is a fully-immersive adult visual novel where you get to be the spicy superhero you've always wanted to be - coming soon!",
 };
 
 export default async function VisualNovel() {
@@ -26,7 +26,7 @@ export default async function VisualNovel() {
               But when his beautiful nemesis robs the wrong jewelry store, everything changes. There’s a killer on the loose, and this small-town superhero has to team up with a bunch of sexy allies…the photographer with a secret, the MILF-y detective with a chip on her shoulder, and an old high school crush who now sees him in a new light.
               <br /> But his most powerful partner just might be the beautiful but ruthless burglar he’s been pursuing for years.
             </p>
-            <Button className="px-4 py-[10px] bg-[#EE93F7] text-black font-normal text-lg leading-8 m-auto">Coming March 2025</Button>
+            <Button className="px-4 py-[10px] bg-[#EE93F7] text-black font-normal text-lg leading-8 m-auto hover:shadow-[2px_2px_10px_#ccc] transition duration-200">Coming March 2025</Button>
           </div>
         </div>
       </section>

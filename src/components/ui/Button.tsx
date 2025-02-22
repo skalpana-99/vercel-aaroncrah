@@ -9,8 +9,8 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-primary text-black",
-        primaryLight: "bg-white text-black",
+        primary: "bg-primary text-black hover:bg-[#e66df2]",
+        primaryLight: "bg-white text-black hover:shadow-[5px_5px_10px_#000] transition duration-200",
         ghost: "bg-transparent",
       },
       size: {
@@ -26,14 +26,15 @@ interface ButtonProps extends React.HTMLAttributes<HTMLElement>, VariantProps<ty
   children: ReactNode;
   link?: string | object;
   type?: "button" | "submit" | "reset";
+  target?: string;
 }
 
 // Button Component
-export function Button({ link, className, variant, size, children, ...props }: ButtonProps) {
+export function Button({ link, className, variant, size, children, target, ...props }: ButtonProps) {
   // If a link is provided, render a Link component
   if (link) {
     return (
-      <Link href={link} className={buttonVariants({ variant, size, className })} {...props}>
+      <Link href={link} target={target} className={buttonVariants({ variant, size, className })} {...props}>
         {children}
       </Link>
     );

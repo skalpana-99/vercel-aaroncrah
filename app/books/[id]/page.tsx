@@ -8,13 +8,34 @@ import Image from "next/image";
 import Link from "next/link";
 import ReadMore from "@/components/ui/ReadMore";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
 
 interface PageProps {
-  params: { id: number };
+  params: Promise<{ id: string }>;
 }
 
-export default function SingleBookPage({ params }: PageProps) {
-  const bookId = Number(params.id);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const resolvedParams = await params;
+  const bookId = Number(resolvedParams.id);
+
+  const localBook: BookData | undefined = getLocalBookById(bookId);
+
+  if (!localBook) {
+    return {
+      title: "Book Not Found",
+      description: "Book details not available",
+    };
+  }
+
+  return {
+    title: localBook.title,
+    description: localBook.description.split(".")[0],
+  };
+}
+
+export default async function SingleBookPage({ params }: PageProps) {
+  const resolvedParams = await params;
+  const bookId = Number(resolvedParams.id);
 
   const bookTypes = {
     PRINT_BOOK_PAPER_BACK: "paperback",
@@ -40,25 +61,31 @@ export default function SingleBookPage({ params }: PageProps) {
           <svg width="9" height="18" viewBox="0 0 9 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0.950195 1.07992L7.4702 7.59992C8.2402 8.36992 8.2402 9.62992 7.4702 10.3999L0.950195 16.9199" stroke="#161616" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <Link href={`/series/${localBook?.series.slug}`} className="max-md:hidden">
-            <div className="">{localBook?.series.name}</div>
-          </Link>
-          <div className="md:hidden">...</div>
-          <svg width="9" height="18" viewBox="0 0 9 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0.950195 1.07992L7.4702 7.59992C8.2402 8.36992 8.2402 9.62992 7.4702 10.3999L0.950195 16.9199" stroke="#161616" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+          {localBook?.series.slug && (
+            <>
+              <Link href={`/series/${localBook?.series.slug}`} className="max-md:hidden">
+                <div className="">{localBook?.series.name}</div>
+              </Link>
+              <div className="md:hidden">...</div>
+              <svg width="9" height="18" viewBox="0 0 9 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.950195 1.07992L7.4702 7.59992C8.2402 8.36992 8.2402 9.62992 7.4702 10.3999L0.950195 16.9199" stroke="#161616" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </>
+          )}
 
           <div className="opacity-40 overflow-hidden whitespace-nowrap text-ellipsis">{localBook?.title}</div>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-[42px] mb-[20px] lg:mb-[56px]">
-          <div className="bg-book-card p-4 flex w-full lg:max-w-[468px] aspect-[1] lg:max-h-[468px]">
-            <Image alt={localBook ? localBook.title : ""} src={localBook ? `/assets/images/books/${localBook.image}` : ""} width={468} height={468} objectFit="contain" className="w-full lg:w-full lg:max-w-[468px] lg:max-h-[384px] object-contain my-auto aspect-[1]" />
+          <div className="bg-book-card flex w-full lg:max-w-[468px] aspect-[1] lg:max-h-[468px] border border-solid border-[#d3d3d3]">
+            <Image alt={localBook ? localBook.title : ""} src={`/assets/images/books/${localBook.image.trim() !== "" ? localBook.image : "no-book.png"}`} width={468} height={468} objectFit="contain" className="w-full lg:w-full lg:max-w-[468px] lg:max-h-[468px] object-contain my-auto aspect-[1]" />
           </div>
           <div className="w-full flex flex-col">
-            <Link href={`/series/${localBook?.series.slug}`}>
-              <div className="px-3 py-2 bg-[#0000001A] font-normal text-[20px] leading-6 w-fit mb-5 uppercase">{localBook?.series.name}</div>
-            </Link>
+            {localBook?.series.slug && (
+              <Link href={`/series/${localBook?.series.slug}`}>
+                <div className="px-3 py-2 bg-[#0000001A] font-normal text-[20px] leading-6 w-fit mb-5 uppercase">{localBook?.series.name}</div>
+              </Link>
+            )}
             <p className="font-normal text-[40px] leading-[60px] mb-5 uppercase">{localBook?.title}</p>
             <hr />
             <p className="uppercase mt-3 font-light text-lg leading-7">Choose format</p>
@@ -79,16 +106,16 @@ export default function SingleBookPage({ params }: PageProps) {
         </div>
 
         <ReadMore description={localBook?.description ? localBook?.description : ""} />
-
-        <Heading level={2} size="lg" className="text-center mb-8 lg:mb-14">
-          <Heading.Text variant="secondaryDark">Also Check the </Heading.Text>
-          <Heading.Text variant="primaryDark">Other Books in this Series</Heading.Text>
-        </Heading>
-        <div className="relative book-card-carousel">
-          {/* grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-xsm gap-y-md mt-sm */}
-
-          <BookSlider Books={otherBooks} bookId={bookId} />
-        </div>
+        {localBook?.series.slug && <>
+          <Heading level={2} size="lg" className="text-center mb-8 lg:mb-14">
+            <Heading.Text variant="secondaryDark">Also Check the </Heading.Text>
+            <Heading.Text variant="primaryDark">Other Books in this Series</Heading.Text>
+          </Heading>
+          <div className="relative book-card-carousel">
+            <BookSlider Books={otherBooks} bookId={bookId} />
+          </div>
+        </>
+        }
 
         <section className="md:pb-sm max-sm:mt-inner">
           <div className="container mt-20 lg:mt-lg xl:px-0 px-[24px]">
@@ -102,7 +129,7 @@ export default function SingleBookPage({ params }: PageProps) {
                       <Heading.Text variant="secondaryLight">from amazon</Heading.Text>
                     </Heading>
 
-                    <Button className="mt-8 lg:mt-[183px] w-full lg:w-auto" size="small" variant="primaryLight">
+                    <Button link="https://a.co/d/5QTP0x2" target="_blank" className="mt-8 lg:mt-[183px] w-full lg:w-fit hover:shadow-[5px_5px_20px_#cccccc80] transition duration-200" size="small" variant="primaryLight">
                       Buy now
                     </Button>
                   </div>
@@ -119,12 +146,3 @@ export default function SingleBookPage({ params }: PageProps) {
   );
 }
 
-// export async function generateStaticParams() {
-//   // Fetch the list of all books from your data source
-//   const books = [{ id: 1 }, { id: 2 }];
-
-//   // Return an array of objects with the `id` parameter as a string
-//   return books.map((book: { id: number }) => ({
-//     id: book.id.toString(), // Convert numeric ID to string
-//   }));
-// }

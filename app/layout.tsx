@@ -25,13 +25,6 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: ["Aaron crash", "Books", "Writing"],
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
-  },
   robots: {
     index: true,
     follow: true,

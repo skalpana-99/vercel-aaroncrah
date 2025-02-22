@@ -1,11 +1,11 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Heading from "./Heading";
 import { Button } from "./Button";
 
 interface cardProps {
   title: string;
   description: string;
-  image?: any;
+  image?: string | StaticImageData;
   link: string;
   buttonText?: string;
   background?: string;
@@ -23,7 +23,7 @@ export function SeriesCard({ title, description, image, link, buttonText, backgr
           {buttonText || "Read More"}
         </Button>
       </div>
-      <Image className="mt-sm lg:mt-[26px] mx-auto" src={image} alt="series-image" />
+      <Image className="mt-sm lg:mt-[26px] mx-auto" src={image ? image : ''} alt="series-image" />
     </div>
   );
 }

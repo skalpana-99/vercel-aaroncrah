@@ -23,6 +23,7 @@ const config: Config = {
         'mute-2': "rgb(0 0 0 / 20%)",
         'mute': "rgb(0 0 0 / 40%)",
         'mute-3': "rgb(0 0 0 / 5%)",
+
       },
       fontFamily: {
         sans: ['var(--font-oswald)'],

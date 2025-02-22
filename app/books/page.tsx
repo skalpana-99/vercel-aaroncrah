@@ -12,8 +12,8 @@ import Image from "next/image";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Books",
-  description: "A comprehensive starter template for author websites",
+  title: "Books by Aaron Crash",
+  description: "Your next favorite thrilling adventure read awaits. Dive into the worlds of author Aaron Crash today",
 };
 
 export default async function BooksPage() {
@@ -44,7 +44,7 @@ export default async function BooksPage() {
       </section>
 
       {/* dfgfg */}
-      <section className="mt-20 lg:mt-[100px] mb-20 lg:mb-[120px]">
+      <section className="mt-20 lg:mt-[100px] mb-20 lg:mb-[120px] px-6">
         <div className="container ">
           <div className="bg-bundle-bg-1-3 bg-cover bg-no-repeat rounded-md max-lg:bg-right-top">
             <div className="p-10 md:p-inner bg-bundle-gradient rounded-md flex max-lg:flex-col justify-between">
@@ -56,7 +56,7 @@ export default async function BooksPage() {
                 </Heading>
 
                 {/* <p className="mt-inner text-primary text-[80px] leading-[72px]"></p> */}
-                <Button className="mt-8 max-lg:mb-14 lg:mt-auto lg:max-w-[100px]" size="small" variant="primaryLight">
+                <Button link="https://a.co/d/e4tsqvT" target="_blank" className="mt-8 max-lg:mb-14 lg:mt-auto lg:max-w-[100px] hover:shadow-[5px_5px_20px_#000000] transition duration-200" size="small" variant="primaryLight">
                   buy now
                 </Button>
               </div>

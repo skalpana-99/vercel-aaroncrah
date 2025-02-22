@@ -3,7 +3,6 @@ import { useSearchStore } from "@/store/search-store";
 import { useState, useEffect } from "react";
 import { Button } from "./Button";
 import { useRef } from "react";
-import { useBookStore } from "@/store/book-store";
 import { useRouter } from "next/navigation";
 
 const SearchBar = () => {
@@ -13,8 +12,6 @@ const SearchBar = () => {
   const searchRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
-  const setSearchQuery = useBookStore((state) => state.setSearchQuery);
-
   const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -23,7 +20,6 @@ const SearchBar = () => {
 
     isSearchOpen && closeSearch();
 
-    // setSearchQuery(searchTerm);
     router.push(`/books?search=${searchTerm}`);
   };
 

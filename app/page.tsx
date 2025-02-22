@@ -12,11 +12,10 @@ import series_3 from "@/series-covers/series_3.webp";
 import series_4 from "@/series-covers/series_4.webp";
 import series_5 from "@/series-covers/series_5.png";
 import series_6 from "@/series-covers/series_6.webp";
-import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Home",
-  description: "A comprehensive starter template for author websites",
+  title: "Aaron Crash - best-selling author of high-octane science fiction and fantasy",
+  description: "Discover author Aaron Crash and his bestelling series: War God's Mantle, American Dragons, Princesses of the Ironbound, and more",
 };
 
 export default function HomePage() {
@@ -45,8 +44,8 @@ export default function HomePage() {
             </Heading>
 
             <div className="flex flex-col gap-xsm md:gap-md">
-              <SeriesCard title="American dragons" description="Steven Whipp, a normal, poor college student, is kissed and shot on the night of his twentieth birthday. He realizes three things: he's bulletproof, he's a dragon, and everything he's ever wanted is within his reach. But the attempts on his life are just the beginning of his troubles." background="assets/images/series-covers/series_1_bg.webp" image={series_1} link="/home" />
-              <SeriesCard title="Princesses of the Ironbound" description="The barbarians of the frozen north live to fight, drink, hunt, and screw, and Ymir is a true son of the Ax Tundra, until a demon curses him with magic. Orphaned by battle and banished by his tribe, Ymir heads south to Old Ironbound, a university where the rich and well-connected learn to master magic. Will..." background="assets/images/series-covers/series_2_bg.webp" image={series_2} link="/home" />
+              <SeriesCard title="American dragons" description="Steven Whipp, a normal, poor college student, is kissed and shot on the night of his twentieth birthday. He realizes three things: he's bulletproof, he's a dragon, and everything he's ever wanted is within his reach. But the attempts on his life are just the beginning of his troubles." background="assets/images/series-covers/series_1_bg.webp" image={series_1} link="/series/american-dragons" />
+              <SeriesCard title="Princesses of the Ironbound" description="The barbarians of the frozen north live to fight, drink, hunt, and screw, and Ymir is a true son of the Ax Tundra, until a demon curses him with magic. Orphaned by battle and banished by his tribe, Ymir heads south to Old Ironbound, a university where the rich and well-connected learn to master magic. Will..." background="assets/images/series-covers/series_2_bg.webp" image={series_2} link="/series/princesses-of-the-ironbound" />
             </div>
           </div>
         </div>
@@ -141,13 +140,13 @@ export default function HomePage() {
             </Heading>
 
             <div className="flex flex-col gap-xsm md:gap-md">
-              <SeriesCard title="Land of the Lust" description="Sid and two women—his hot MILF professor and his bratty cheerleader crush—are all grabbed by an energy storm and flung to a strange patchwork world, like someone chopped up a thousand planets and quilted them together." background="assets/images/series-covers/series_3_bg.webp" image={series_3} link="/home" buttonText="Coming soon" />
+              <SeriesCard title="Land of the Lust" description="Sid and two women—his hot MILF professor and his bratty cheerleader crush—are all grabbed by an energy storm and flung to a strange patchwork world, like someone chopped up a thousand planets and quilted them together." background="assets/images/series-covers/series_3_bg.webp" image={series_3} link="#" buttonText="Coming soon" />
 
-              <SeriesCard title="War God's Mantle" description="When Marine Corps pilot Jacob Merely crashes during a routine mission off the coast of Cyprus, he was sure it was game over.After surviving the crash and pulling himself onto the sandy shores of a long-abandoned island, however, Jacob unwittingly stumbles headfirst into the ancient ruins of a dead city." background="assets/images/series-covers/series_4_bg.webp" image={series_4} link="/home" />
+              <SeriesCard title="War God Saga" description="When Marine Corps pilot Jacob Merely crashes during a routine mission off the coast of Cyprus, he was sure it was game over.After surviving the crash and pulling himself onto the sandy shores of a long-abandoned island, however, Jacob unwittingly stumbles headfirst into the ancient ruins of a dead city." background="assets/images/series-covers/series_4_bg.webp" image={series_4} link="/series/the-war-god-saga" />
 
-              <SeriesCard title="Creature Girl Creations" description="He's lost his company and his body, and the man who murdered him might still be alive. The good news is he's on Plymouth, an almost mythical world where monsters are designed and printed for Roy's game worlds.First order of the day: print himself a superpowered body and get back what's his." background="assets/images/series-covers/series_5_bg.webp" image={series_5} link="/home" />
+              <SeriesCard title="Creature Girl Creations" description="He's lost his company and his body, and the man who murdered him might still be alive. The good news is he's on Plymouth, an almost mythical world where monsters are designed and printed for Roy's game worlds.First order of the day: print himself a superpowered body and get back what's his." background="assets/images/series-covers/series_5_bg.webp" image={series_5} link="/series/creature-girl-creations" />
 
-              <SeriesCard title="Son of Fire" description="He was minding his own business on Earth when a beautiful sorceress summoned him to defend a backwater village from demonic raiders. He's lost his gun, his family, and even his name, but it's not the first fight he's been in, and it won't be the last." background="assets/images/series-covers/series_6_bg.webp" image={series_6} link="/home" />
+              <SeriesCard title="Son of Fire" description="He was minding his own business on Earth when a beautiful sorceress summoned him to defend a backwater village from demonic raiders. He's lost his gun, his family, and even his name, but it's not the first fight he's been in, and it won't be the last." background="assets/images/series-covers/series_6_bg.webp" image={series_6} link="/series/son-of-fire" />
             </div>
           </div>
         </div>

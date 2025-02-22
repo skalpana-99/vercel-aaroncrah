@@ -1,3 +1,5 @@
+import { getSeriesMenu } from "@/utils/helpers";
+
 export const siteConfig = {
   name: "Aaron Crash",
   description: "Official website for [Author Name]",
@@ -12,28 +14,7 @@ export const siteConfig = {
       id: 2,
       label: "Book by series",
       path: "/bookbyseries",
-      submenu: [
-        {
-          id: 31,
-          label: "Do the hard things first",
-          path: "/bookbyseries/dothehardthingsfirst",
-        },
-        {
-          id: 32,
-          label: "Pathways to mastery",
-          path: "/bookbyseries/pathwaystomastery",
-        },
-        {
-          id: 33,
-          label: "Bulletproof mindset mastery",
-          path: "/bookbyseries/bulletproofmindsetmastery",
-        },
-        {
-          id: 34,
-          label: "Lifestyle mastery",
-          path: "/bookbyseries/lifestylemastery",
-        },
-      ],
+      submenu: getSeriesMenu(),
     },
     {
       id: 3,
@@ -41,7 +22,7 @@ export const siteConfig = {
       path: "/formats",
       submenu: [
         {
-          id: 36,
+          id: 37,
           label: "Audiobooks",
           path: {
             pathname: '/books',
@@ -49,7 +30,7 @@ export const siteConfig = {
           },
         },
         {
-          id: 37,
+          id: 38,
           label: "eBooks",
           path: {
             pathname: '/books',
@@ -57,11 +38,19 @@ export const siteConfig = {
           },
         },
         {
-          id: 38,
+          id: 39,
           label: "Paperbacks",
           path: {
             pathname: '/books',
             query: { format: 'print_book_paper_back' },
+          },
+        },
+        {
+          id: 40,
+          label: "All Formats",
+          path: {
+            pathname: '/books',
+            query: { format: 'all' },
           },
         },
       ],
@@ -78,3 +67,5 @@ export const siteConfig = {
     },
   ]
 } as const;
+
+

@@ -102,7 +102,7 @@ export function Newsletter({ secondaryTitle, primaryTitle, highlightTitle, higli
               />
             </div>
 
-            <Button type="submit" variant="primaryLight" size="full" className="mt-8">
+            <Button type="submit" variant="primaryLight" size="full" className="mt-8 hover:shadow-[5px_5px_20px_#00000080] transition duration-200">
               Sign up
             </Button>
 

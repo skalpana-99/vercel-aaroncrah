@@ -1,4 +1,3 @@
-// store.ts
 import { MergedBook } from "@/types/books";
 import { create } from "zustand";
 
@@ -16,7 +15,7 @@ interface BookStore {
   paginatedBooks: () => MergedBook[];
   sortOrder: "asc" | "desc" | null;
   setSortOrder: (order: "asc" | "desc" | null) => void;
-  setBooks: (books: MergedBook[]) => void; // Added type for setBooks
+  setBooks: (books: MergedBook[]) => void;
 }
 
 export const useBookStore = create<BookStore>((set, get) => ({
@@ -43,7 +42,11 @@ export const useBookStore = create<BookStore>((set, get) => ({
   // Function to update format filter
   setFormat: (format) => set({ format, currentPage: 1 }),
 
-
+  /**
+   * 
+   * Function to filter books based on format, search query and sort order
+   *   
+   */
   filteredBooks: () => {
     const { books, format, sortOrder, searchQuery } = get();
 
@@ -84,7 +87,6 @@ export const useBookStore = create<BookStore>((set, get) => ({
           : dateB.getTime() - dateA.getTime();
       });
     }
-
 
     return finalFilteredBooks;
   },

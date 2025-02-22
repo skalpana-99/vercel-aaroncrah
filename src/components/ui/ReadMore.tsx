@@ -46,7 +46,6 @@ export default function ReadMore({ description }: ReadMoreProps) {
                     <p ref={contentRef} className={`text-[18px] font-light leading-7
               after:content-[''] after:absolute after:inset-0 ${!readmore && showReadmore ? 'after:bg-gradient-to-t after:from-white after:to-transparent' : ''}`}
                         dangerouslySetInnerHTML={{ __html: description ? description : "" }} >
-                        {/* {localBook?.description} */}
                     </p>
                 </div>
 
