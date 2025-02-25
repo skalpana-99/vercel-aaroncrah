@@ -2,6 +2,7 @@ import { type Metadata } from "next";
 import { Oswald } from "next/font/google";
 import { siteConfig } from "@/config/site";
 import { cva } from "class-variance-authority";
+import Head from 'next/head';
 
 import "@/styles/globals.css";
 import SearchBar from "@/components/ui/SearchBar";
@@ -46,6 +47,9 @@ export const dynamic = "force-static";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Head>
+        <meta name="robots" content="noindex" />
+      </Head>
       <body className={`${bodyStyles()} ${oswald.variable}`}>
         <SearchBar />
         {children}
