@@ -18,15 +18,14 @@ export const metadata: Metadata = {
   description: "Discover author Aaron Crash and his bestelling series: War God's Mantle, American Dragons, Princesses of the Ironbound, and more",
   openGraph: {
     title: "Aaron Crash - best-selling author of high-octane science fiction and fantasy",
-    description:
-      "Discover author Aaron Crash and his bestselling series: War God's Mantle, American Dragons, Princesses of the Ironbound, and more",
+    description: "Discover author Aaron Crash and his bestselling series: War God's Mantle, American Dragons, Princesses of the Ironbound, and more",
     images: [
       {
         url: `${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/featured-img.webp`,
         width: 1200,
         height: 630,
         alt: "Featured Image for Aaron Crash",
-        type: 'image/webp'
+        type: "image/webp",
       },
     ],
     type: "website",
@@ -38,14 +37,13 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Aaron Crash - best-selling author of high-octane science fiction and fantasy",
-    description:
-      "Discover author Aaron Crash and his bestselling series: War God's Mantle, American Dragons, Princesses of the Ironbound, and more",
+    description: "Discover author Aaron Crash and his bestselling series: War God's Mantle, American Dragons, Princesses of the Ironbound, and more",
     images: [`${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/featured-img.webp`], // Can be an array or string
   },
 
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_BASE_URL}`,
-  }
+  },
 };
 
 export default function HomePage() {
@@ -170,7 +168,7 @@ export default function HomePage() {
             </Heading>
 
             <div className="flex flex-col gap-xsm md:gap-md">
-              <SeriesCard title="Land of the Lust" description="Sid and two women—his hot MILF professor and his bratty cheerleader crush—are all grabbed by an energy storm and flung to a strange patchwork world, like someone chopped up a thousand planets and quilted them together." background="assets/images/series-covers/series_3_bg.webp" image={series_3} link="#" buttonText="Coming soon" />
+              <SeriesCard title="Land of the Lust" description="Sid and two women—his hot MILF professor and his bratty cheerleader crush—are all grabbed by an energy storm and flung to a strange patchwork world, like someone chopped up a thousand planets and quilted them together." background="assets/images/series-covers/series_3_bg.webp" image={series_3} buttonText="Coming soon" />
 
               <SeriesCard title="War God Saga" description="When Marine Corps pilot Jacob Merely crashes during a routine mission off the coast of Cyprus, he was sure it was game over.After surviving the crash and pulling himself onto the sandy shores of a long-abandoned island, however, Jacob unwittingly stumbles headfirst into the ancient ruins of a dead city." background="assets/images/series-covers/series_4_bg.webp" image={series_4} link="/series/the-war-god-saga" />
 

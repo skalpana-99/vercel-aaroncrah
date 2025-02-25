@@ -10,15 +10,14 @@ export const metadata: Metadata = {
   description: "Aaron Crash is the best-selling author of high-octane spicy men's adventures novels that take place in thrilling science fiction and fantasy worlds",
   openGraph: {
     title: "All about Aaron Crash - science fiction and fantasy author",
-    description:
-      "Aaron Crash is the best-selling author of high-octane spicy men's adventures novels that take place in thrilling science fiction and fantasy worlds",
+    description: "Aaron Crash is the best-selling author of high-octane spicy men's adventures novels that take place in thrilling science fiction and fantasy worlds",
     images: [
       {
         url: `${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/featured-img.webp`,
         width: 1200,
         height: 630,
         alt: "Featured Image for Aaron Crash",
-        type: 'image/webp'
+        type: "image/webp",
       },
     ],
     type: "website",
@@ -30,14 +29,13 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "All about Aaron Crash - science fiction and fantasy author",
-    description:
-      "Aaron Crash is the best-selling author of high-octane spicy men's adventures novels that take place in thrilling science fiction and fantasy worlds",
+    description: "Aaron Crash is the best-selling author of high-octane spicy men's adventures novels that take place in thrilling science fiction and fantasy worlds",
     images: [`${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/featured-img.webp`], // Can be an array or string
   },
 
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/about-me`,
-  }
+  },
 };
 
 export default async function Page() {
@@ -118,7 +116,7 @@ export default async function Page() {
         </div>
       </section>
 
-      <section className="mt-inner lg:mt-lg mb-0 md:mb-[180px] max-sm:pb-[60px]">
+      <section className="mt-inner lg:mt-lg mb-0 md:mb-[60px] max-sm:pb-[60px]">
         <div className="container xl:px-0 px-[24px]">
           <Newsletter background="bg-gradient-to-r" secondaryTitle="Join my newsletter to receive a " primaryTitle="free digital copy of " highlightTitle="Time Jacker" coverImage="/assets/images/newsletter_cover.webp" />
         </div>

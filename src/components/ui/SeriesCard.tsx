@@ -6,7 +6,7 @@ interface cardProps {
   title: string;
   description: string;
   image?: string | StaticImageData;
-  link: string;
+  link?: string | null;
   buttonText?: string;
   background?: string;
 }
@@ -19,11 +19,11 @@ export function SeriesCard({ title, description, image, link, buttonText, backgr
           {title}
         </Heading>
         <p className="text-white text-center font-light leading-[28px] text-[18px]">{description}</p>
-        <Button size="small" link={`${link}`} variant="primary" className="mt-8 md:mt-[44px]">
+        <Button size="small" link={`${link ? link : ""}`} variant="primary" className="mt-8 md:mt-[44px]">
           {buttonText || "Read More"}
         </Button>
       </div>
-      <Image className="mt-sm lg:mt-[26px] mx-auto" src={image ? image : ''} alt="series-image" />
+      <Image className="mt-sm lg:mt-[26px] mx-auto" src={image ? image : ""} alt="series-image" />
     </div>
   );
 }
