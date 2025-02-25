@@ -7,6 +7,7 @@ import { createSubscriber } from "@/actions/createSubscriber";
 import { useFormState } from "react-dom";
 import { getCountry } from "@/utils/helpers";
 import { useEffect, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 interface newsletterProps {
   secondaryTitle?: string;
@@ -28,6 +29,13 @@ export function Newsletter({ secondaryTitle, primaryTitle, highlightTitle, higli
   const [state, subscribe] = useFormState(createSubscriber, initialState);
 
   const [country, setCountry] = useState("");
+
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+
+  function handleChange(value: string | null) {
+    setCaptchaValue(value);
+    state.message = "Sign up";
+  }
 
   useEffect(() => {
     async function getCountryClientSide() {
@@ -53,7 +61,7 @@ export function Newsletter({ secondaryTitle, primaryTitle, highlightTitle, higli
         <Image
           className={`
             z-50
-          max-sm:relative max-sm:top-16 sm:absolute sm:top-[60px] sm:left-[40px] lg:left-[70px]
+          max-sm:relative max-sm:top-16 sm:absolute sm:top-[30px] sm:left-[40px] lg:left-[70px]
           max-lg:w-full max-sm:w-[70%] ${coverStyle ? coverStyle : ""}
         `}
           src={coverImage}
@@ -64,7 +72,7 @@ export function Newsletter({ secondaryTitle, primaryTitle, highlightTitle, higli
       </div>
 
       {/* Content  */}
-      <div className="relative z-50 p-[50px] lg:p-[100px] max-sm:px-[40px] max-sm:pb-0 max-sm:pt-0">
+      <div className="relative z-50 p-[50px] lg:p-[100px] max-sm:px-[40px] max-sm:pb-0 max-sm:pt-0 lg:pt-[65px] lg:pb-[130px]">
         {/* Heading */}
         <Heading level={2} size="lg" variant="primaryLight" className="md:leading-[80px] max-sm:text-center">
           {secondaryTitle && <Heading.Text variant="secondaryLight">{secondaryTitle}</Heading.Text>}
@@ -73,9 +81,10 @@ export function Newsletter({ secondaryTitle, primaryTitle, highlightTitle, higli
         </Heading>
 
         {/* newsletter Form */}
-        <div className="mt-8">
+        <div className="mt-8 relative">
           <form action={subscribe}>
             <input type="hidden" name="country" value={country} />
+            <input type="hidden" name="recaptchaToken" value={captchaValue || ""} />
             <div>
               <input
                 className={`
@@ -103,11 +112,13 @@ export function Newsletter({ secondaryTitle, primaryTitle, highlightTitle, higli
             </div>
 
             <Button type="submit" variant="primaryLight" size="full" className="mt-8 hover:shadow-[5px_5px_20px_#00000080] transition duration-200">
-              Sign up
+              {state?.message ? state.message : "Sign Up"}
             </Button>
 
             {/* Success/Error Message */}
-            <p className="mt-4 text-center text-base font-light text-[#3ede75] uppercase">{state?.message}</p>
+            <div className="absolute  bottom-[-100px]">
+              <ReCAPTCHA style={{ display: "inline-block", marginTop: "20px" }} theme="dark" sitekey="6LfKu-EqAAAAAE3dOTDnHX51BnqXQdfyT5p7CNlI" onChange={handleChange} />
+            </div>
           </form>
         </div>
       </div>

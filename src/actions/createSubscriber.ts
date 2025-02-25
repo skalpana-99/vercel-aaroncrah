@@ -11,14 +11,34 @@ export async function createSubscriber(
     const name = formData.get('name');
     const email = formData.get('email');
     const country_name = formData.get('country');
+    const recaptchaToken = formData.get("recaptchaToken");
+
+    const secretKey = "6LfKu-EqAAAAAKYtGCZM3StVtVE3qJpJ1P0E1oV1";
+
 
     if (!name || !email) {
         return { message: 'Please provide a valid name and email' }
     }
+    if (!recaptchaToken) {
+        return { message: 'Please complete the reCAPTCHA verification' }
+    }
+
+    const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${recaptchaToken}`;
 
     let data;
 
     try {
+
+        const captchaResponse = await fetch(verificationUrl, {
+            method: 'POST',
+        });
+        const captchaData = await captchaResponse.json();
+
+        if (!captchaData.success) {
+            return {
+                message: 'reCAPTCHA verification failed. Please try again.'
+            };
+        }
         // Create a new subscriber
         const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
             method: 'POST',
@@ -43,5 +63,5 @@ export async function createSubscriber(
 
     }
 
-    return { message: "sign up successfull." }
+    return { message: "sign up successfull" }
 }
