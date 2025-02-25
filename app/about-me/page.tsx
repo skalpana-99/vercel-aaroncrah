@@ -8,6 +8,36 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "All about Aaron Crash - science fiction and fantasy author",
   description: "Aaron Crash is the best-selling author of high-octane spicy men's adventures novels that take place in thrilling science fiction and fantasy worlds",
+  openGraph: {
+    title: "All about Aaron Crash - science fiction and fantasy author",
+    description:
+      "Aaron Crash is the best-selling author of high-octane spicy men's adventures novels that take place in thrilling science fiction and fantasy worlds",
+    images: [
+      {
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/featured-img.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Featured Image for Aaron Crash",
+        type: 'image/webp'
+      },
+    ],
+    type: "website",
+    url: process.env.NEXT_PUBLIC_BASE_URL,
+    siteName: "Aaron Crash",
+  },
+
+  // Twitter Card Meta Tags
+  twitter: {
+    card: "summary_large_image",
+    title: "All about Aaron Crash - science fiction and fantasy author",
+    description:
+      "Aaron Crash is the best-selling author of high-octane spicy men's adventures novels that take place in thrilling science fiction and fantasy worlds",
+    images: [`${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/featured-img.webp`], // Can be an array or string
+  },
+
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/about-me`,
+  }
 };
 
 export default async function Page() {
@@ -53,7 +83,7 @@ export default async function Page() {
                   <a href="https://www.facebook.com/aaroncrashbooks" target="_blank">
                     <div className="bg-bg-about-social flex px-4 items-center justify-between cursor-pointer">
                       <p className="text-md font-regular leading-[28px] my-3 uppercase">Follow on Facebook</p>
-                      <Image title="Facebook" src="/assets/images/facebook.png" width={24} height={24} alt="facebook-icon" />
+                      <Image src="/assets/images/facebook.png" width={24} height={24} alt="facebook-icon" />
                     </div>
                   </a>
                 </div>
@@ -67,7 +97,7 @@ export default async function Page() {
                     <div className="bg-bg-about-social flex px-4 items-center justify-between cursor-pointer">
                       <p className="text-md font-regular leading-[28px] my-3 uppercase">join on patreon</p>
 
-                      <Image title="Patreon" src="/assets/images/patreon.png" width={24} height={24} alt="patreon-icon" />
+                      <Image src="/assets/images/patreon.png" width={24} height={24} alt="patreon-icon" />
                     </div>
                   </a>
                 </div>

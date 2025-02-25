@@ -14,6 +14,36 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Books by Aaron Crash",
   description: "Your next favorite thrilling adventure read awaits. Dive into the worlds of author Aaron Crash today",
+  openGraph: {
+    title: "Books by Aaron Crash",
+    description:
+      "Your next favorite thrilling adventure read awaits. Dive into the worlds of author Aaron Crash today",
+    images: [
+      {
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/featured-img.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Featured Image for Aaron Crash",
+        type: 'image/webp'
+      },
+    ],
+    type: "website",
+    url: process.env.NEXT_PUBLIC_BASE_URL,
+    siteName: "Aaron Crash",
+  },
+
+  // Twitter Card Meta Tags
+  twitter: {
+    card: "summary_large_image",
+    title: "Books by Aaron Crash",
+    description:
+      "Your next favorite thrilling adventure read awaits. Dive into the worlds of author Aaron Crash today",
+    images: [`${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/featured-img.webp`], // Can be an array or string
+  },
+
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/books`,
+  }
 };
 
 export default async function BooksPage() {

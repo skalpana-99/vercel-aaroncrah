@@ -38,7 +38,7 @@ export function BookGrid() {
       <div>
         {searchQuery && (
           <div className="uppercase flex gap-2 align-center items-center max-md:mt-4">
-            Search results for: "{searchQuery}" -
+            Search results for: &quot;{searchQuery}&quot; -
             <button className="uppercase" onClick={handleClearSearch}>
               <Image className="mt-1" src="/assets/images/close.svg" width={20} height={20} alt="clear" title="clear" />
             </button>
@@ -47,7 +47,7 @@ export function BookGrid() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-xsm gap-y-[48px] md:gap-y-md mt-8 md:mt-sm auto-rows-auto">
         {paginatedBooks.map((book: MergedBook) => (
-          <BookCard key={book.id} cover_image={book.cover_image} attribTitle={book.bookTitle} title={book.bookTitle} series_name={book.series_slug ? `${book.series_name} : book ${book.order}` : null} series_slug={book.series_slug} bookId={book.book_id} />
+          <BookCard key={book.id} cover_image={book.cover_image} attribTitle={book.bookTitle} title={book.bookTitle} series_name={book.series_slug ? `${book.series_name} : ${book.order === 0 ? `(Unordered)` : `book ${book.order}`}` : null} series_slug={book.series_slug} bookId={book.book_id} />
         ))}
       </div>
     </>

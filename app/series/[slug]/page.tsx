@@ -8,13 +8,54 @@ import Image from "next/image";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: " Book Series by Aaron Crash",
-  description: "It's time to discover your next favorite science fiction or fantasy series. Dive into the worlds of author Aaron Crash today",
-};
 
 interface PageProps {
   params: { slug: string };
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const resolvedParams = await params;
+  const seriesSlug = resolvedParams.slug;
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
+  // const localBook: BookData | undefined = getLocalBookById(seriesSlug);
+  const seriesData = getSeriesBySlug(seriesSlug);
+
+  if (!seriesData) {
+    return {
+      title: "Book Series by Aaron Crash",
+      description: "It's time to discover your next favorite science fiction or fantasy series. Dive into the worlds of author Aaron Crash today",
+    };
+  }
+
+  return {
+    title: seriesData.name,
+    description: seriesData.description.split(".")[0],
+    openGraph: {
+      title: `${seriesData.name} by Aaron Crash`, // Custom title
+      description: seriesData.description.split(".")[0], // Book-specific description
+      images: [
+        {
+          url: `${baseUrl}/assets/images/featured-img.webp`, // Handle absolute or relative URLs
+          width: 1200,
+          height: 630,
+          alt: `${seriesData.name} Cover`,
+          type: "image/webp",
+        },
+      ],
+      type: "website",
+      url: `${baseUrl}/series/${seriesSlug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${seriesData.name} by Aaron Crash`,
+      description: seriesData.description.split(".")[0],
+      images: [`${baseUrl}/assets/images/featured-img.webp`],
+    },
+    alternates: {
+      canonical: `${baseUrl}/series/${seriesSlug}`,
+    }
+  };
 }
 
 export default function SingleSeriesPage({ params }: PageProps) {
@@ -44,7 +85,7 @@ export default function SingleSeriesPage({ params }: PageProps) {
                   key={book.bookId}
                   bookId={book.bookId}
                   cover_image={book.image ? book.image : ""}
-                  series_name={`Book ${index + 1}`}
+                  series_name={book.series.order === 0 ? 'Unordered' : `Book ${index + 1}`}
                   series_slug={null}
                   title={book.title}
                 />

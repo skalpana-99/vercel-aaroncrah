@@ -7,6 +7,36 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Step into the world of Mask City - an Adult Visual Novel",
   description: "Mask City is a fully-immersive adult visual novel where you get to be the spicy superhero you've always wanted to be - coming soon!",
+  openGraph: {
+    title: "Step into the world of Mask City - an Adult Visual Novel",
+    description:
+      "Mask City is a fully-immersive adult visual novel where you get to be the spicy superhero you've always wanted to be - coming soon!",
+    images: [
+      {
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/featured-img.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Featured Image for Aaron Crash",
+        type: 'image/webp'
+      },
+    ],
+    type: "website",
+    url: process.env.NEXT_PUBLIC_BASE_URL,
+    siteName: "Aaron Crash",
+  },
+
+  // Twitter Card Meta Tags
+  twitter: {
+    card: "summary_large_image",
+    title: "Step into the world of Mask City - an Adult Visual Novel",
+    description:
+      "Mask City is a fully-immersive adult visual novel where you get to be the spicy superhero you've always wanted to be - coming soon!",
+    images: [`${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/featured-img.webp`],
+  },
+
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/visual-novel`,
+  }
 };
 
 export default async function VisualNovel() {
@@ -44,32 +74,17 @@ export default async function VisualNovel() {
               Finding this killer is going to take a lot of leg work.
             </p>
           </div>
-          {/* absolute right-0 top-0 */}
+
           <div className="max-lg:aspect-[747/1012]">
             <Image className="absolute lg:right-0 lg:top-14 lg:max-w-[508px] w-[95%] lg:w-[35vw]" src="/assets/images/hero-girl-4.png" alt="lady hero" width={508} height={688} />
           </div>
         </div>
       </section>
-      <div className="w-full max-w-full overflow-hidden">{/* <Image className="lg:hidden w-full" src='/assets/images/hero-girl-2.png' alt="lady hero" width={508} height={688} /> */}</div>
-
-      {/* <section className="mb-[200px]">
-                <div className="container xl:px-0 w-[90%] bg-hero-02 rounded-[12px]">
-                    <div className="backdrop-blur-[6em] bg-[#00000033] flex flex-row rounded-[12px] px-[8%] pt-[100px] justify-between">
-                        <Image className="mb-[-100px]" src='/assets/images/hero-tablet.webp' alt="hero in a tablet" width={368} height={787} />
-                        <div className="max-w-[576px]">
-                            <p className="text-[60px] leading-[80px] font-light text-[#BBBBBB]">
-                                Want to learn more about the upcoming release of <span className="font-normal text-[#FFFFFF]">Mask City?</span> Sign up below
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </section> */}
 
       {/* newsletter section */}
       <section className=" mb-0 md:mb-[183px] max-sm:pb-[60px]">
         <div className="container xl:px-0 px-[24px]">
-          <Newsletter background="bg-hero-tab-blur" secondaryTitle="Want to learn more about the upcoming release of " primaryTitle="Mask City? " highlightTitle="Sign up below" higlightStyle="!text-light font-light" coverImage="/assets/images/hero-tablet-fixed.webp" coverStyle="md:top-[120px]" mobileBg="max-sm:bg-black/20" />
+          <Newsletter background="bg-hero-tab-blur" secondaryTitle="Want to learn more about the upcoming release of " primaryTitle="Mask City? " highlightTitle="Sign up below" highlightStyle="!text-light font-light" coverImage="/assets/images/hero-tablet-fixed.webp" coverStyle="md:top-[120px]" mobileBg="max-sm:bg-black/20" />
         </div>
       </section>
     </div>

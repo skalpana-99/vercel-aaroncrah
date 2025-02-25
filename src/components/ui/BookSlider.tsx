@@ -46,7 +46,7 @@ export default function BookSlider({ Books, bookId }: BookSliderProps) {
                             isSelected={book.bookId === bookId ? true : false}
                             bookId={book.bookId}
                             cover_image={book.image ? book.image : ""}
-                            series_name={`Book ${index + 1}`}
+                            series_name={book.series.order === 0 ? 'Unordered' : `Book ${index + 1}`}
                             series_slug={null}
                             title={book.title}
                         />

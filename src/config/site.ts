@@ -2,9 +2,8 @@ import { getSeriesMenu } from "@/utils/helpers";
 
 export const siteConfig = {
   name: "Aaron Crash",
-  description: "Official website for Aaron crash",
+  description: "Official website for [Author Name]",
   mailerliteKey: process.env.NEXT_MAILERLITE_KEY,
-  ogImage: "https://placehold.co/1200x628",
   navigation: [
     {
       id: 1,
@@ -64,7 +63,12 @@ export const siteConfig = {
     {
       id: 5,
       label: "Author",
-      path: "/about",
+      path: "/about-me",
+    },
+    {
+      id: 6,
+      label: "Links",
+      path: "/links",
     },
   ]
 } as const;

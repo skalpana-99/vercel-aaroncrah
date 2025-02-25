@@ -31,6 +31,15 @@
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .rc-recaptcha {
+    transform: scale(0.76);
+    -webkit-transform: scale(0.76);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+  }
+}
+
 .book-card-carousel .swiper-pagination {
   position: unset;
   padding-top: 6px;

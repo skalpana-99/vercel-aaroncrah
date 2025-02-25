@@ -2,7 +2,6 @@ import { type Metadata } from "next";
 import { Oswald } from "next/font/google";
 import { siteConfig } from "@/config/site";
 import { cva } from "class-variance-authority";
-import Head from 'next/head';
 
 import "@/styles/globals.css";
 import SearchBar from "@/components/ui/SearchBar";
@@ -26,15 +25,6 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: ["Aaron crash", "Books", "Writing"],
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://aaroncrash.com",
-    images: siteConfig.ogImage,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
-  },
   robots: {
     index: true,
     follow: true,
@@ -47,10 +37,8 @@ export const dynamic = "force-static";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Head>
-        <meta name="robots" content="noindex" />
-      </Head>
-      <body className={`${bodyStyles()} ${oswald.variable}`}>
+
+      <body className={`${bodyStyles()} ${oswald.variable} flex flex-col justify-between`}>
         <SearchBar />
         {children}
         <Footer />

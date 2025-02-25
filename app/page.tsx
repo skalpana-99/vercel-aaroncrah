@@ -16,6 +16,36 @@ import series_6 from "@/series-covers/series_6.webp";
 export const metadata: Metadata = {
   title: "Aaron Crash - best-selling author of high-octane science fiction and fantasy",
   description: "Discover author Aaron Crash and his bestelling series: War God's Mantle, American Dragons, Princesses of the Ironbound, and more",
+  openGraph: {
+    title: "Aaron Crash - best-selling author of high-octane science fiction and fantasy",
+    description:
+      "Discover author Aaron Crash and his bestselling series: War God's Mantle, American Dragons, Princesses of the Ironbound, and more",
+    images: [
+      {
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/featured-img.webp`,
+        width: 1200,
+        height: 630,
+        alt: "Featured Image for Aaron Crash",
+        type: 'image/webp'
+      },
+    ],
+    type: "website",
+    url: process.env.NEXT_PUBLIC_BASE_URL,
+    siteName: "Aaron Crash",
+  },
+
+  // Twitter Card Meta Tags
+  twitter: {
+    card: "summary_large_image",
+    title: "Aaron Crash - best-selling author of high-octane science fiction and fantasy",
+    description:
+      "Discover author Aaron Crash and his bestselling series: War God's Mantle, American Dragons, Princesses of the Ironbound, and more",
+    images: [`${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/featured-img.webp`], // Can be an array or string
+  },
+
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}`,
+  }
 };
 
 export default function HomePage() {
@@ -68,7 +98,7 @@ export default function HomePage() {
                 </Heading>
                 <p className="font-light text-md text-white leading-[28px] mt-xsm">Aaron Crash is the bestselling author of a high-octane men's adventure novels where good guys destroy douchebag villains to get harems of beautiful women so they can all live happily ever after.</p>
                 <div className="flex gap-4 md:gap-xsm mt-8 md:mt-md max-sm:justify-center">
-                  <Button variant="primaryLight" link="/about">
+                  <Button variant="primaryLight" link="/about-me">
                     Learn more
                   </Button>
 
@@ -76,13 +106,13 @@ export default function HomePage() {
                     <div className="relative w-[52px] h-[52px] cursor-pointer">
                       <div className="absolute inset-0 bg-white opacity-20"></div>
                       <a href="https://www.facebook.com/aaroncrashbooks" target="_blank">
-                        <Image title="Facebook" className="absolute w-[20px] h-[20px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" src="/assets/images/facebook.png" alt="facebook" width={20} height={20} />
+                        <Image className="absolute w-[20px] h-[20px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" src="/assets/images/facebook.png" alt="facebook" width={20} height={20} />
                       </a>
                     </div>
                     <div className="relative w-[52px] h-[52px] cursor-pointer">
                       <div className="absolute inset-0 bg-white opacity-20"></div>
                       <a href="https://www.patreon.com/aaroncrashbooks" target="_blank">
-                        <Image title="Patreon" className="absolute w-[20px] h-[20px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" src="/assets/images/patreon.png" alt="facebook" width={20} height={20} />
+                        <Image className="absolute w-[20px] h-[20px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" src="/assets/images/patreon.png" alt="patreon" width={20} height={20} />
                       </a>
                     </div>
                   </div>
@@ -152,7 +182,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* newsletter section */}
-      <section className="mt-inner lg:mt-lg mb-0 md:mb-[140px] max-sm:pb-[60px]">
+      <section className="mt-inner lg:mt-lg mb-0 md:mb-[70px] max-sm:pb-[60px]">
         <div className="container xl:px-0 px-[24px]">
           <Newsletter background="bg-gradient-to-r" secondaryTitle="Join my newsletter to receive a " primaryTitle="free digital copy of " highlightTitle="Time Jacker" coverImage="/assets/images/newsletter_cover.webp" />
         </div>

@@ -1,51 +1,95 @@
 'use server'
 
-export async function createContact(
-    prevState: { message: string; },
-    formData: FormData,
-): Promise<{ message: string; }> {
+import { isValidEmail } from "@/utils/helpers";
 
-
+/**
+ * Adds contact to MailerLite with specified group
+ * @throws Error if API call fails or configuration is invalid
+ */
+async function addContact(
+    email: string,
+    name: string,
+    country: string,
+    favoriteBook: string,
+    message: string,
+): Promise<any> {
     const mailerliteKey = process.env.NEXT_MAILERLITE_KEY;
-
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const fav_book = formData.get('favorite-book');
-    const message = formData.get('message');
-    const country_name = formData.get('country');
-
-    if (!name || !email || !fav_book || !message) {
-        return { message: 'Please provide the correct details.' }
+    if (!mailerliteKey) {
+        throw new Error('MailerLite API key is not set');
     }
 
-    let data;
+    const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
+        method: 'POST',
+        body: JSON.stringify({
+            email,
+            fields: {
+                name,
+                country,
+                favorite_book: favoriteBook,
+                message
+            },
+            groups: ['146888857452807390'],
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${mailerliteKey}`
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error('Failed to add contact');
+    }
+
+    return response.json();
+}
+
+/**
+ * Server action to handle contact creation from form submission
+ */
+export async function createContact(
+    prevState: { message: string },
+    formData: FormData
+): Promise<{ message: string }> {
+    // Extract and sanitize form data
+    const name = formData.get('name')?.toString().trim();
+    const email = formData.get('email')?.toString().trim();
+    const favoriteBook = formData.get('favorite-book')?.toString().trim();
+    const message = formData.get('message')?.toString().trim();
+    const country = formData.get('country')?.toString().trim() || '';
+    const recaptchaToken = formData.get("recaptchaToken");
+
+    const secretKey = process.env.NEXT_RECAPTCHA_SECRET_KEY;
+    if (!secretKey) {
+        throw new Error('Recaptcha secret key is not set');
+    }
+
+    // Validate inputs
+    if (!name || !email || !favoriteBook || !message || !isValidEmail(email)) {
+        return { message: 'Please provide all required details correctly' };
+    }
+
+    if (!recaptchaToken) {
+        return { message: 'Please complete the Recaptcha' };
+    }
+
+    const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${recaptchaToken}`;
+
 
     try {
-        // Create a new subscriber
-        const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
+        const captchaResponse = await fetch(verificationUrl, {
             method: 'POST',
-            body: JSON.stringify({
-                email: email,
-                fields: {
-                    name: name,
-                    country: country_name,
-                    favorite_book: fav_book,
-                    message: message
-                },
-                groups: ['146888857452807390'], // Arc team group
-            }),
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + mailerliteKey
-            }
         });
-        data = await response.json();
+        const captchaData = await captchaResponse.json();
 
-    } catch (e) {
-        console.log(e);
-        return { message: 'An error occured.' }
-
+        if (!captchaData.success) {
+            return {
+                message: 'Recaptcha failed. Please try again.',
+            };
+        }
+        await addContact(email, name, country, favoriteBook, message);
+        return { message: 'Message sent successfully' };
+    } catch (e: any) {
+        console.error('Error creating contact:', e);
+        return { message: e.message || 'An error occurred while sending message' };
     }
-
-    return { message: "Message sent successfully." }
 }

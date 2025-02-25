@@ -57,7 +57,7 @@ export function BooksPagination() {
   return (
     <div className="flex text-black gap-2 sm:gap-4 justify-center sm:leading-sm text-lg sm:text-24">
       <div onClick={() => handlePagination(currentPage - 1)} className={`${currentPage > 1 ? "" : "invisible"} w-full max-w-[60px] aspect-square flex bg-[#F2F2F2] cursor-pointer rotate-180 hover:bg-[#cdcdcd]`}>
-        <Image src="/assets/images/rightarrow.svg" alt="arrow-right" width={9} height={18} className="m-auto" />
+        <Image src="/assets/images/rightarrow.svg" alt="arrow-left" width={9} height={18} className="m-auto" />
       </div>
 
       {pages.map((page, index) => {

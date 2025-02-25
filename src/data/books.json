@@ -825,7 +825,7 @@
     "series": {
       "name": "American Dragons",
       "slug": "american-dragons",
-      "order": 12
+      "order": 0
     },
     "format": {
       "ebook": {

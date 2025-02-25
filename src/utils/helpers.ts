@@ -30,6 +30,14 @@ export function isBrowser(): boolean {
   return typeof window !== "undefined";
 }
 
+/**
+ * Validates email format using basic regex
+ */
+export function isValidEmail(email: string): boolean {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
 
 /**
  * returns counts of books by format.
@@ -88,7 +96,12 @@ export function getLocalBookById(bookId: number): BookData | undefined {
 export function getSeriesBooksBySlug(slug: string) {
   const bookIds = books
     .filter((book) => book.series.slug === slug)
-    .sort((a, b) => a.series.order - b.series.order)
+    .sort((a, b) => {
+      if (a.series.order === 0 && b.series.order === 0) return 0;
+      if (a.series.order === 0) return 1;
+      if (b.series.order === 0) return -1;
+      return a.series.order - b.series.order;
+    })
     .map((book) => book);
 
   return bookIds ? bookIds : [];
