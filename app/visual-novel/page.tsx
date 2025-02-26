@@ -9,15 +9,14 @@ export const metadata: Metadata = {
   description: "Mask City is a fully-immersive adult visual novel where you get to be the spicy superhero you've always wanted to be - coming soon!",
   openGraph: {
     title: "Step into the world of Mask City - an Adult Visual Novel",
-    description:
-      "Mask City is a fully-immersive adult visual novel where you get to be the spicy superhero you've always wanted to be - coming soon!",
+    description: "Mask City is a fully-immersive adult visual novel where you get to be the spicy superhero you've always wanted to be - coming soon!",
     images: [
       {
         url: `${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/featured-img.webp`,
         width: 1200,
         height: 630,
         alt: "Featured Image for Aaron Crash",
-        type: 'image/webp'
+        type: "image/webp",
       },
     ],
     type: "website",
@@ -29,14 +28,13 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Step into the world of Mask City - an Adult Visual Novel",
-    description:
-      "Mask City is a fully-immersive adult visual novel where you get to be the spicy superhero you've always wanted to be - coming soon!",
+    description: "Mask City is a fully-immersive adult visual novel where you get to be the spicy superhero you've always wanted to be - coming soon!",
     images: [`${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/featured-img.webp`],
   },
 
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/visual-novel`,
-  }
+  },
 };
 
 export default async function VisualNovel() {
@@ -50,11 +48,11 @@ export default async function VisualNovel() {
             <h1 className="text-[40px]  md:text-6xl font-normal leading-[56px] md:leading-[80px] uppercase mb-3">Blurb Working Draft</h1>
             <p className="text-[24px] md:text-[32px] leading-[34px] md:leading-[56px] font-light mb-5 md:mb-10 max-md:opacity-60 uppercase">Small town superhero. Big city killer. So much spice.</p>
             <p className="text-[18px] leading-7 font-light mb-10">
-              Middleton’s favorite superhero is no stranger to fighting crime. He’s been protecting his town for years against a variety of villains, both the enhanced kind and the normies.
+              Middleton’s favorite superhero is no stranger to fighting crime. He's been protecting his town for years against a variety of villains, both the enhanced kind and the normies.
               <br />
               <br />
-              But when his beautiful nemesis robs the wrong jewelry store, everything changes. There’s a killer on the loose, and this small-town superhero has to team up with a bunch of sexy allies…the photographer with a secret, the MILF-y detective with a chip on her shoulder, and an old high school crush who now sees him in a new light.
-              <br /> But his most powerful partner just might be the beautiful but ruthless burglar he’s been pursuing for years.
+              But when his beautiful nemesis robs the wrong jewelry store, everything changes. There's a killer on the loose, and this small-town superhero has to team up with a bunch of sexy allies…the photographer with a secret, the MILF-y detective with a chip on her shoulder, and an old high school crush who now sees him in a new light.
+              <br /> But his most powerful partner just might be the beautiful but ruthless burglar he's been pursuing for years.
             </p>
             <Button className="px-4 py-[10px] bg-[#EE93F7] text-black font-normal text-lg leading-8 m-auto hover:shadow-[2px_2px_10px_#ccc] transition duration-200">Coming March 2025</Button>
           </div>
@@ -65,10 +63,10 @@ export default async function VisualNovel() {
         <div className="container xl:px-0 w-[90%] flex flex-col lg:flex-row justify-between">
           <div className="lg:max-w-[792px] lg:w-[65%]">
             <h2 className="text-[40px] md:text-[56px] leading-[56px] md:leading-[80px] font-normal text-[#22B1E9] uppercase mb-6 md:mb-10">
-              You’ve not experienced <br className="hidden lg:block" /> anything like THIS!
+              You've not experienced <br className="hidden lg:block" /> anything like THIS!
             </h2>
             <p className="text-[24px] md:text-[32px] leading-[40px] md:leading-[56px] font-light text-[#8A8A8A]">
-              <span className="uppercase font-normal text-[#161616]">TITLE OF ADULT VIDEO NOVEL</span> is an interactive Adult Visual Novel with mind-blowing art, sexy scenes, and a fully immersive experience where story, art, sound, and music let you be the spicy superhero you’ve always wanted to be.
+              <span className="uppercase font-normal text-[#161616]">TITLE OF ADULT VIDEO NOVEL</span> is an interactive Adult Visual Novel with mind-blowing art, sexy scenes, and a fully immersive experience where story, art, sound, and music let you be the spicy superhero you've always wanted to be.
               <br />
               <br />
               Finding this killer is going to take a lot of leg work.
@@ -82,7 +80,7 @@ export default async function VisualNovel() {
       </section>
 
       {/* newsletter section */}
-      <section className=" mb-0 md:mb-[183px] max-sm:pb-[60px]">
+      <section className=" mb-0 md:mb-[80px] max-sm:pb-[60px]">
         <div className="container xl:px-0 px-[24px]">
           <Newsletter background="bg-hero-tab-blur" secondaryTitle="Want to learn more about the upcoming release of " primaryTitle="Mask City? " highlightTitle="Sign up below" highlightStyle="!text-light font-light" coverImage="/assets/images/hero-tablet-fixed.webp" coverStyle="md:top-[120px]" mobileBg="max-sm:bg-black/20" />
         </div>

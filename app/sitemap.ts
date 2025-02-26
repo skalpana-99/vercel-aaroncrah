@@ -46,6 +46,11 @@ export default function sitemap() {
             lastModified: "2025-02-20T05:18:03.073Z",
             changeFrequency: "monthly",
         },
+        {
+            url: "https://aaroncrash.com/links",
+            lastModified: "2025-02-20T05:18:03.073Z",
+            changeFrequency: "monthly",
+        },
         ...paths,
         ...series
     ]

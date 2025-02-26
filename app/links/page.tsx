@@ -43,8 +43,8 @@ export default function Page() {
       <HeaderV2 />
       <section className="mt-[56px] lg:mt-lg">
         <div className="container xl:px-0 px-[24px] ">
-          <Heading level={2} size="lg" className="text-center mb-sm lg:mb-md">
-            <Heading.Text variant="secondaryDark">connect with </Heading.Text>
+          <Heading level={1} size="lg" className="text-center mb-sm lg:mb-md">
+            <Heading.Text variant="secondaryDark">Connect with </Heading.Text>
             <Heading.Text variant="primaryDark">aaron crash</Heading.Text>
           </Heading>
 
@@ -62,7 +62,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="mt-inner lg:mb-[90px] lg:mt-lg">
+      <section className="mt-inner max-sm:mb-[100px] lg:mb-[90px] lg:mt-lg">
         <div className="container xl:px-0 px-[24px]">
           <Newsletter background="bg-gradient-to-r" secondaryTitle="Join my newsletter to receive a " primaryTitle="free digital copy of " highlightTitle="Time Jacker" coverImage="/assets/images/newsletter_cover.webp" />
         </div>
