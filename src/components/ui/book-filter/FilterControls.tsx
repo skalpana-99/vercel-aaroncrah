@@ -82,7 +82,9 @@ export function FilterControls() {
     const format = newValue?.value || "all";
     setActiveFormat(format);
     setIsFilterOpen(false);
-    router.push(`?format=${format.toLowerCase()}${searchQry}`, { scroll: false });
+    setTimeout(() => {
+      router.push(`?format=${format.toLowerCase()}${searchQry}`, { scroll: false });
+    }, 600);
   };
 
   return (

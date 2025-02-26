@@ -30,7 +30,9 @@ export default function FormatTabs({ books }: { books: MergedBook[] }) {
 
   const handleFormatChange = (formatId: string) => {
     setLoading(true);
-    router.push(`?format=${formatId.toLowerCase()}${searchQry}`, { scroll: false });
+    setTimeout(() => {
+      router.push(`?format=${formatId.toLowerCase()}${searchQry}`, { scroll: false });
+    }, 600);
   };
 
   const formats = useMemo(() => {

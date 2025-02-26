@@ -22,7 +22,10 @@ export function BooksPagination() {
     setLoading(true);
     const params = new URLSearchParams(searchParams.toString());
     params.set("page", pageNumber.toString());
-    router.push(`?${params.toString()}`, { scroll: false });
+
+    setTimeout(() => {
+      router.push(`?${params.toString()}`, { scroll: false });
+    }, 600);
   }
 
   // Generate an array of pages based on the viewport
