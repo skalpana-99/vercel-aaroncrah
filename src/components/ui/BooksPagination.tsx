@@ -5,18 +5,21 @@ import Image from "next/image";
 import { useSearchParams, useRouter } from "next/navigation";
 
 export function BooksPagination() {
-  const { currentPage, setCurrentPage, filteredBooks, perPage } = useBookStore();
+  const { currentPage, setCurrentPage, filteredBooks, perPage, setLoading } = useBookStore();
   const totalPages = Math.ceil(filteredBooks().length / perPage);
   const searchParams = useSearchParams();
   const router = useRouter();
   const pageNum = searchParams.get("page");
 
   useEffect(() => {
-    setCurrentPage(parseInt(pageNum ? pageNum : "1", 10));
-  }, [pageNum]);
+    const page = parseInt(pageNum ? pageNum : "1", 10);
+    setCurrentPage(page);
+    setLoading(false);
+  }, [pageNum, setCurrentPage]);
 
   // Handle page clicks
   function handlePagination(pageNumber: number) {
+    setLoading(true);
     const params = new URLSearchParams(searchParams.toString());
     params.set("page", pageNumber.toString());
     router.push(`?${params.toString()}`, { scroll: false });

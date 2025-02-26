@@ -9,8 +9,7 @@ import Image from "next/image";
 
 export function BookGrid() {
   const paginatedBooks = useBookStore((state) => state.paginatedBooks());
-  const searchQuery = useBookStore((state) => state.searchQuery);
-  const setSearchQuery = useBookStore((state) => state.setSearchQuery);
+  const { searchQuery, setSearchQuery, loading } = useBookStore();
   const router = useRouter();
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get("search") || "";
@@ -22,6 +21,14 @@ export function BookGrid() {
   const handleClearSearch = () => {
     router.push(`/books`);
   };
+
+  if (loading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="h-32 w-32 animate-spin rounded-full border-b-2 border-gray-900" />
+      </div>
+    );
+  }
 
   if (paginatedBooks.length === 0) {
     return (

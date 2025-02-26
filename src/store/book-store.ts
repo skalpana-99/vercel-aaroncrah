@@ -8,10 +8,12 @@ interface BookStore {
   currentPage: number;
   perPage: number;
   searchQuery: string,
+  loading: boolean;
   setSearchQuery: (query: string) => void,
   setFormat: (format: string) => void;
   setCurrentPage: (page: number) => void;
   filteredBooks: () => MergedBook[];
+  setLoading: (isLoading: boolean) => void;
   paginatedBooks: () => MergedBook[];
   sortOrder: "asc" | "desc" | null;
   setSortOrder: (order: "asc" | "desc" | null) => void;
@@ -23,10 +25,11 @@ export const useBookStore = create<BookStore>((set, get) => ({
   searchQuery: "",
   setSearchQuery: (query: string) => set({ searchQuery: query, currentPage: 1 }), // Reset page on new search
   format: "all",
+  loading: false,
   currentPage: 1,
   perPage: 6,
   sortOrder: null,
-
+  setLoading: (isLoading) => set({ loading: isLoading }),
   setBooks: (books: MergedBook[]) =>
     set({
       books: [...books].sort((a, b) => {

@@ -28,7 +28,7 @@ export function FilterControls() {
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
   const [activeFormat, setActiveFormat] = useState("all");
 
-  const { books, setFormat, setSortOrder } = useBookStore();
+  const { books, setFormat, setSortOrder, setLoading } = useBookStore();
 
   const searchParams = useSearchParams();
   const format = searchParams.get("format");
@@ -42,8 +42,9 @@ export function FilterControls() {
       const bookFormat: string = formatUpper === "ALL" ? "all" : formatUpper;
       setFormat(bookFormat);
       setActiveFormat(bookFormat);
+      setLoading(false);
     }
-  }, [format]);
+  }, [format, setFormat, setLoading]);
 
   const formats = useMemo(() => {
     if (searchParam) {
@@ -76,6 +77,7 @@ export function FilterControls() {
   };
 
   const handleFormatChange = (newValue: SingleValue<Option>) => {
+    setLoading(true);
     // Update the format filter in the store
     const format = newValue?.value || "all";
     setActiveFormat(format);

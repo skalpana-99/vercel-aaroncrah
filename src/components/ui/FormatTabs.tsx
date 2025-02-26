@@ -8,7 +8,7 @@ import { MergedBook } from "@/types/books";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function FormatTabs({ books }: { books: MergedBook[] }) {
-  const { setFormat } = useBookStore();
+  const { setFormat, setLoading } = useBookStore();
   const searchParams = useSearchParams();
   const router = useRouter();
   const format = searchParams.get("format");
@@ -20,14 +20,16 @@ export default function FormatTabs({ books }: { books: MergedBook[] }) {
   useEffect(() => {
     if (format) {
       const formatUpper = format.toUpperCase();
-      const bookFormat: string = formatUpper === "ALL" ? "all" : formatUpper;
+      const bookFormat = formatUpper === "ALL" ? "all" : formatUpper;
       setFormat(bookFormat);
       setActiveFormat(bookFormat);
       setIsOpen(false);
+      setLoading(false); // Reset loading once format is set
     }
-  }, [format]);
+  }, [format, setFormat, setLoading]);
 
   const handleFormatChange = (formatId: string) => {
+    setLoading(true);
     router.push(`?format=${formatId.toLowerCase()}${searchQry}`, { scroll: false });
   };
 
