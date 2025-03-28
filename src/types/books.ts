@@ -71,6 +71,11 @@ export interface MergedBook {
     createDate: string;
     lastModDate?: string;
     status?: string;
+    series?: {
+        id: number;
+        name: string;
+        slug: string;
+    }
     sku?: string;
     bookTitle: string;
     format: string;

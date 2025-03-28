@@ -79,7 +79,7 @@ export function Newsletter({ secondaryTitle, primaryTitle, highlightTitle, highl
         />
       </div>
 
-      <div className="relative z-50 p-[50px] lg:p-[100px] max-sm:px-[40px] max-sm:pb-[0px] max-sm:pt-0 lg:pt-[65px] lg:pb-[130px] max-lg:pb-[130px]">
+      <div className="relative z-50 p-[50px] lg:p-[100px] max-sm:px-[40px] max-sm:pb-[0px] sm:pb-[50px] max-sm:pt-0 lg:pt-[100px] lg:pb-[100px] max-lg:pb-[100px]">
         <Heading level={2} size="lg" variant="primaryLight" className="md:leading-[80px] max-sm:text-center max-lg:!text-[40px] max-lg:!leading-[56px]">
           {secondaryTitle && <Heading.Text variant="secondaryLight">{secondaryTitle}</Heading.Text>}
           {primaryTitle && <Heading.Text variant="primaryLight">{primaryTitle}</Heading.Text>}

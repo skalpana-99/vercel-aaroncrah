@@ -57,7 +57,9 @@ export const useBookStore = create<BookStore>((set, get) => ({
     if (searchQuery) {
       const lowerCaseQuery = searchQuery.toLowerCase();
       searchedBooks = books.filter((book: MergedBook) => {
-        return book.bookTitle?.toLowerCase().includes(lowerCaseQuery) ?? false;
+        const matchesTitle = book.bookTitle?.toLowerCase().includes(lowerCaseQuery) ?? false;
+        const matchesSeries = book.series?.name?.toLowerCase().includes(lowerCaseQuery) ?? false;
+        return matchesTitle || matchesSeries;
       });
     }
 
