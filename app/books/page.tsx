@@ -16,15 +16,14 @@ export const metadata: Metadata = {
   description: "Your next favorite thrilling adventure read awaits. Dive into the worlds of author Aaron Crash today",
   openGraph: {
     title: "Books by Aaron Crash",
-    description:
-      "Your next favorite thrilling adventure read awaits. Dive into the worlds of author Aaron Crash today",
+    description: "Your next favorite thrilling adventure read awaits. Dive into the worlds of author Aaron Crash today",
     images: [
       {
         url: `${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/featured-img.webp`,
         width: 1200,
         height: 630,
         alt: "Featured Image for Aaron Crash",
-        type: 'image/webp'
+        type: "image/webp",
       },
     ],
     type: "website",
@@ -36,14 +35,13 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Books by Aaron Crash",
-    description:
-      "Your next favorite thrilling adventure read awaits. Dive into the worlds of author Aaron Crash today",
+    description: "Your next favorite thrilling adventure read awaits. Dive into the worlds of author Aaron Crash today",
     images: [`${process.env.NEXT_PUBLIC_BASE_URL}/assets/images/featured-img.webp`], // Can be an array or string
   },
 
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/books`,
-  }
+  },
 };
 
 export default async function BooksPage() {
@@ -74,7 +72,7 @@ export default async function BooksPage() {
       </section>
 
       {/* dfgfg */}
-      <section className="mt-20 lg:mt-[100px] mb-20 lg:mb-[120px] px-6">
+      <section className="mt-20 lg:mt-[100px] mb-20 lg:mb-[40px] px-6">
         <div className="container ">
           <div className="bg-bundle-bg-1-3 bg-cover bg-no-repeat rounded-md max-lg:bg-right-top">
             <div className="p-10 md:p-inner bg-bundle-gradient rounded-md flex max-lg:flex-col justify-between">

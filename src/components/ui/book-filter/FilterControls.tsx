@@ -20,7 +20,7 @@ const formatOptions: Option[] = [
   { value: "all", label: "All books" },
   { value: "PRINT_BOOK_PAPER_BACK", label: "Paperbacks" },
   { value: "EBOOK", label: "Ebooks" },
-  { value: "AUDIOBOOK", label: "Audio books" },
+  { value: "AUDIOBOOK", label: "Audiobooks" },
 ];
 
 export function FilterControls() {
@@ -84,7 +84,7 @@ export function FilterControls() {
     setIsFilterOpen(false);
     setTimeout(() => {
       router.push(`?format=${format.toLowerCase()}${searchQry}`, { scroll: false });
-    }, 600);
+    }, 500);
   };
 
   return (

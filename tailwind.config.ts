@@ -65,7 +65,7 @@ const config: Config = {
         'headerV2-bg': "url('/assets/images/header-bg-2.png')",
         'headerV3-bg': "url('/assets/images/header-bg-3.png')",
         'headerV3-gradient': 'linear-gradient(#000, 60%, transparent)',
-        'hero-01': "url('/assets/images/hero-bg.png')",
+        'hero-01': "url('/assets/images/hero_bg_re.jpg')",
         'hero-02': "url('/assets/images/hero-bg-2.webp')",
         'bundle-bg-book': "url('/assets/images/bundle-bg-books.webp')",
         'bundle-bg-book-gradient': "linear-gradient(90deg, rgb(0 0 0 / 70%) 0%, rgb(0 0 0 / 60%) 49%, rgba(0, 0, 0, 0) 100%)",

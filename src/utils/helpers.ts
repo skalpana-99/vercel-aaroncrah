@@ -82,7 +82,7 @@ export function getFormatsWithCount(books: MergedBook[], searchTerm?: string) {
     { id: "all", label: "All Books", count: all },
     { id: "PRINT_BOOK_PAPER_BACK", label: "Paperbacks", count: formatCounts.PRINT_BOOK_PAPER_BACK },
     { id: "EBOOK", label: "eBooks", count: formatCounts.EBOOK },
-    { id: "AUDIOBOOK", label: "Audio books", count: formatCounts.AUDIOBOOK },
+    { id: "AUDIOBOOK", label: "Audiobooks", count: formatCounts.AUDIOBOOK },
   ];
 }
 
@@ -3015,5 +3015,11 @@ export function genarateSeriesData() {
 
 // Return available series with URL
 export function getSeriesMenu() {
-  return seriesData.map((series, index) => ({ id: index + 1, label: series.name, path: `/series/${series.slug}` }));
+  return seriesData
+    .sort((a, b) => a.menuOrder - b.menuOrder)
+    .map((series, index) => ({
+      id: index + 1,
+      label: series.name,
+      path: `/series/${series.slug}`
+    }));
 }

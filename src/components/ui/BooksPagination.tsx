@@ -25,7 +25,7 @@ export function BooksPagination() {
 
     setTimeout(() => {
       router.push(`?${params.toString()}`, { scroll: false });
-    }, 600);
+    }, 500);
   }
 
   // Generate an array of pages based on the viewport

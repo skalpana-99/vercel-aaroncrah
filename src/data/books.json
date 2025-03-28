@@ -683,7 +683,7 @@
     "bookId": 30,
     "title": "Dodge City Knights",
     "description": "WHEN LEGENDS LIVE, DRAGONS DIE.<br /><br />Steven Drokharis is on an impossible quest to find the Holy Grail. The Dragonknights came close, but then their ranks were decimated by the mysterious Dragon Slayer, a legend that still fills Primes with terror. Standing in Steven's way are ancient forces that have been waiting for the Lost Son and Merlin's Daughter to continue the hunt. And yet, war has come to Steven's doorstep, and he must balance defending what he's earned with his greater ambition of bringing revolution to Dragonsouls everywhere.<br /><br />Once again, Steven must gather his allies while his enemies across the world conspire to destroy him. And the greatest villain might be in his own ranks. Tessa stands on the razor's edge of good and evil, tempted. Can Steven and the beautiful women of his Escort save her very soul?<br /><br />Or will Tessa murder the last of the Dragonknights before Steven can unearth the ultimate weapon?<br /><br />Disclaimer: Dodge City Knights (American Dragons Book 6) is a shoot-em-up, action adventure, urban fantasy novel which is not intended for readers under the age of 18. This novel contains swearing, violence, and a harem of beautiful shapeshifting women that the hero regularly sleeps with—and he does so gladly.",
-    "image": "dodge-city-knights.png",
+    "image": "doge_city_re.webp",
     "series": {
       "name": "American Dragons",
       "slug": "american-dragons",
@@ -823,7 +823,7 @@
     "description": "Outside of time and space, the Heretic is watching. And waiting…for the perfect time to strike.<br /><br />Steven Drokharis has vanquished the ultimate evil in the galaxy and now looks forward to a peaceful life with his wives and family. With two new babies to care for, there are plenty of diapers to change and countless sleepless nights ahead. Everything seems fine...<br /><br />But a mysterious presence has been watching him, sending enemies his way, attempting to disrupt the peace and prosperity he aims to bring to the universe.<br /><br />This is a different kind of adventure, focusing on the quieter moments as Steven navigates the realities of fatherhood and being one of the most powerful beings in existence. What is life like in a household full of women when all your really powerful enemies have been defeated?<br /><br />Disclaimer: All the American Dragons novels are action-packed, urban fantasy adventures intended for readers over the age of 18. The novels contain swearing, violence, and a harem of beautiful shapeshifting women the hero regularly sleeps with—and he does so gladly.",
     "image": "the-five-widows-an-american-dragons-short-story.png",
     "series": {
-      "name": "American Dragons",
+      "name": "Bonus Novella",
       "slug": "american-dragons",
       "order": 0
     },
@@ -852,6 +852,44 @@
       "audiobook": {
         "url": "https://a.co/d/asWUZUx",
         "createDate": "2020-12-17T18:30:00.000Z"
+      }
+    }
+  },
+  {
+    "bookId": 38,
+    "title": "Huntress of K'Shaul",
+    "description": "Never bring a knife to a gunfight. Bring a dinosaur.\nSid Marshall and the women in his life have fought to make a home for themselves, but it hasn't been easy. K'Shaul is a strange world stitched together from a variety of realities. After seeing his home almost destroyed by a Ravana Storm, Sid must learn the truth about K'Shaul before more storms return.\nThere's only one place where all their questions can be answered: the mysterious Sector X. To get there, Sid, Billie, Holly, and Khanna will have to make unlikely allies, gain new skills, and travel to the very edge of sanity itself.\nTo complicate matters, a mysterious force is keeping them in a constant state of arousal. Even with his libido in overdrive, Sid is ready to rise to the challenge.\nThe stakes have never been higher…and neither has the lust.",
+    "image": "land-of-lust.webp",
+    "series": {
+      "name": "Land Of Lust",
+      "slug": "land-of-lust",
+      "order": 1
+    },
+    "format": {
+      "ebook": {
+        "url": "https://a.co/d/3RxuzDY",
+        "createDate": "2025-03-04T18:30:00.000Z"
+      },
+      "PRINT_BOOK_PAPER_BACK": {
+        "url": "https://a.co/d/5qvlBqN",
+        "createDate": "2025-03-01T18:30:00.000Z"
+      }
+    }
+  },
+  {
+    "bookId": 39,
+    "title": "Guns of K'Shaul",
+    "description": "Never bring a knife to a gunfight. Bring a dinosaur.\nSid Marshall and the women in his life have fought to make a home for themselves, but it hasn't been easy. K'Shaul is a strange world stitched together from a variety of realities. After seeing his home almost destroyed by a Ravana Storm, Sid must learn the truth about K'Shaul before more storms return.\nThere's only one place where all their questions can be answered: the mysterious Sector X. To get there, Sid, Billie, Holly, and Khanna will have to make unlikely allies, gain new skills, and travel to the very edge of sanity itself.\nTo complicate matters, a mysterious force is keeping them in a constant state of arousal. Even with his libido in overdrive, Sid is ready to rise to the challenge.\nThe stakes have never been higher…and neither has the lust.",
+    "image": "land-of-lust-2.webp",
+    "series": {
+      "name": "Land Of Lust",
+      "slug": "land-of-lust",
+      "order": 2
+    },
+    "format": {
+      "ebook": {
+        "url": "https://a.co/d/0UCVn5A",
+        "createDate": "2025-04-22T18:30:00.000Z"
       }
     }
   }

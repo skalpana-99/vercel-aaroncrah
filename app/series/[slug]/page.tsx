@@ -8,7 +8,6 @@ import Image from "next/image";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-
 interface PageProps {
   params: { slug: string };
 }
@@ -54,7 +53,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     alternates: {
       canonical: `${baseUrl}/series/${seriesSlug}`,
-    }
+    },
   };
 }
 
@@ -80,40 +79,80 @@ export default function SingleSeriesPage({ params }: PageProps) {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-xsm gap-y-md">
             {allBooks.map((book, index) => {
-              return (
-                <BookCard
-                  key={book.bookId}
-                  bookId={book.bookId}
-                  cover_image={book.image ? book.image : ""}
-                  series_name={book.series.order === 0 ? 'Unordered' : `Book ${index + 1}`}
-                  series_slug={null}
-                  title={book.title}
-                />
-              );
+              return <BookCard key={book.bookId} bookId={book.bookId} cover_image={book.image ? book.image : ""} series_name={book.series.order === 0 ? "Bonus Novella" : `Book ${index + 1}`} series_slug={null} title={book.title} />;
             })}
           </div>
         </div>
+        {seriesData?.slug === "american-dragons" ? (
+          <>
+            <section className="mt-20 lg:mt-[100px] mb-20 lg:mb-[120px] px-6">
+              <div className="container ">
+                <div className="bg-bundle-bg-1-3 bg-cover bg-no-repeat rounded-md max-lg:bg-right-top">
+                  <div className="p-10 md:p-inner bg-bundle-gradient rounded-md flex max-lg:flex-col justify-between">
+                    <div className="flex flex-col justify-between">
+                      <Heading level={2} size="lg" className="max-w-[574px]">
+                        <Heading.Text variant="secondaryLight">grab the </Heading.Text>
+                        <Heading.Text variant="primaryLight">American Dragons: Books 1 - 3 </Heading.Text>
+                        <Heading.Text variant="secondaryLight">from amazon</Heading.Text>
+                      </Heading>
 
-        <section className="mt-20 lg:mt-[100px] mb-20 lg:mb-[120px]">
-          <div className="container ">
-            <div className="bg-bundle-bg-series bg-right-top bg-cover bg-no-repeat rounded-md max-lg:bg-right-top">
-              <div className="p-10 md:p-inner bg-bundle-gradient rounded-md flex max-lg:flex-col justify-between">
-                <div className="flex flex-col justify-between">
-                  <Heading level={2} size="lg" className="max-w-[574px]">
-                    <Heading.Text variant="secondaryLight">grab the </Heading.Text>
-                    <Heading.Text variant="primaryLight">Princesses of the Ironbound Boxset: Books 1 - 3 </Heading.Text>
-                    <Heading.Text variant="secondaryLight">from amazon</Heading.Text>
-                  </Heading>
-
-                  <Button link="https://a.co/d/dxZUzyr" target="_blank" className="mt-8 max-lg:mb-14 lg:mt-auto lg:max-w-[100px] hover:shadow-[5px_5px_20px_#000000] transition duration-200" size="small" variant="primaryLight">
-                    buy now
-                  </Button>
+                      {/* <p className="mt-inner text-primary text-[80px] leading-[72px]"></p> */}
+                      <Button link="https://a.co/d/e4tsqvT" target="_blank" className="mt-8 max-lg:mb-14 lg:mt-auto lg:max-w-[100px] hover:shadow-[5px_5px_20px_#000000] transition duration-200" size="small" variant="primaryLight">
+                        buy now
+                      </Button>
+                    </div>
+                    <Image className="max-lg:m-auto" alt="book bundle" src={"/assets/images/bundle-1-3.webp"} width={355} height={486} />
+                  </div>
                 </div>
-                <Image className="max-lg:m-auto" alt="book bundle" src={"/assets/images/bundle-books-series.png"} width={355} height={486} />
+              </div>
+            </section>
+            <section className="md:pb-sm max-sm:mt-inner">
+              <div className="container mt-20 lg:mt-lg xl:px-0">
+                <div className="bg-bundle-bg-book bg-cover bg-no-repeat rounded-md max-sm:bg-center">
+                  <div className="p-sm sm:p-inner bg-bundle-gradient rounded-md max-sm:bg-bundle-bg-book-gradient-mobile">
+                    <div className="lg:flex">
+                      <div>
+                        <Heading level={2} size="lg" className="lg:max-w-[574px]">
+                          <Heading.Text variant="secondaryLight">Grab the </Heading.Text>
+                          <Heading.Text variant="primaryLight">American Dragons: Books 4 - 6 </Heading.Text>
+                          <Heading.Text variant="secondaryLight">from amazon</Heading.Text>
+                        </Heading>
+
+                        <Button link="https://a.co/d/5QTP0x2" target="_blank" className="mt-8 lg:mt-[183px] w-full lg:w-fit hover:shadow-[5px_5px_20px_#cccccc80] transition duration-200" size="small" variant="primaryLight">
+                          Buy now
+                        </Button>
+                      </div>
+                      <div className="max-lg:mt-[56px] relative lg:w-1/2 lg:flex lg:justify-end">
+                        <Image className="max-lg:m-auto lg:absolute top-0 " src="/assets/images/bundle_books.webp" alt="bundle-book" width={363} height={486} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </>
+        ) : (
+          <section className="mt-20 lg:mt-[100px] mb-20 lg:mb-[120px]">
+            <div className="container ">
+              <div className="bg-bundle-bg-series bg-right-top bg-cover bg-no-repeat rounded-md max-lg:bg-right-top">
+                <div className="p-10 md:p-inner bg-bundle-gradient rounded-md flex max-lg:flex-col justify-between">
+                  <div className="flex flex-col justify-between">
+                    <Heading level={2} size="lg" className="max-w-[574px]">
+                      <Heading.Text variant="secondaryLight">grab the </Heading.Text>
+                      <Heading.Text variant="primaryLight">Princesses of the Ironbound Boxset: Books 1 - 3 </Heading.Text>
+                      <Heading.Text variant="secondaryLight">from amazon</Heading.Text>
+                    </Heading>
+
+                    <Button link="https://a.co/d/dxZUzyr" target="_blank" className="mt-8 max-lg:mb-14 lg:mt-auto lg:max-w-[100px] hover:shadow-[5px_5px_20px_#000000] transition duration-200" size="small" variant="primaryLight">
+                      buy now
+                    </Button>
+                  </div>
+                  <Image className="max-lg:m-auto" alt="book bundle" src={"/assets/images/bundle-books-series.png"} width={355} height={486} />
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
       </div>
     </div>
   );

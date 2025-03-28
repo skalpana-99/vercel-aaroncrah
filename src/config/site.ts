@@ -23,14 +23,6 @@ export const siteConfig = {
       submenu: [
         {
           id: 37,
-          label: "Audiobooks",
-          path: {
-            pathname: '/books',
-            query: { format: 'audiobook' },
-          },
-        },
-        {
-          id: 38,
           label: "eBooks",
           path: {
             pathname: '/books',
@@ -38,11 +30,19 @@ export const siteConfig = {
           },
         },
         {
-          id: 39,
+          id: 38,
           label: "Paperbacks",
           path: {
             pathname: '/books',
             query: { format: 'print_book_paper_back' },
+          },
+        },
+        {
+          id: 39,
+          label: "Audiobooks",
+          path: {
+            pathname: '/books',
+            query: { format: 'audiobook' },
           },
         },
         {

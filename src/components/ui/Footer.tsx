@@ -22,7 +22,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link className="underline leading-8" href="visual-novel">
-                    Visual Novels
+                    Visual Novel
                   </Link>
                 </li>
                 <li>
@@ -35,7 +35,7 @@ export default function Footer() {
           </div>
         </div>
         <Image className="pt-[24px] pb-[12px]" src="/assets/images/line.svg" alt="Line" width={1200} height={1} />
-        <p className="text-[16px] text-white opacity-60 leading-[28px] text-center uppercase font-light">Copyright © aaron crash Powered by Reader Scout</p>
+        <p className="text-[16px] text-white opacity-60 leading-[28px] text-center uppercase font-light">Copyright © aaron crash Powered by ReaderScout</p>
       </div>
     </footer>
   );

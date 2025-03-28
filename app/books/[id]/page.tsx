@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     alternates: {
       canonical: `${baseUrl}/books/${bookId}`,
-    }
+    },
   };
 }
 
@@ -134,8 +134,8 @@ export default async function SingleBookPage({ params }: PageProps) {
         {localBook?.series.slug && (
           <>
             <Heading level={2} size="lg" className="text-center mb-8 lg:mb-14">
-              <Heading.Text variant="secondaryDark">Also Check the </Heading.Text>
-              <Heading.Text variant="primaryDark">Other Books in this Series</Heading.Text>
+              <Heading.Text variant="secondaryDark">Check out </Heading.Text>
+              <Heading.Text variant="primaryDark">other books in this series</Heading.Text>
             </Heading>
             <div className="relative book-card-carousel">
               <BookSlider Books={otherBooks} bookId={bookId} />
@@ -143,26 +143,23 @@ export default async function SingleBookPage({ params }: PageProps) {
           </>
         )}
 
-        <section className="md:pb-sm max-sm:mt-inner">
-          <div className="container mt-20 lg:mt-lg xl:px-0">
-            <div className="bg-bundle-bg-book bg-cover bg-no-repeat rounded-md max-sm:bg-center">
-              <div className="p-sm sm:p-inner bg-bundle-gradient rounded-md max-sm:bg-bundle-bg-book-gradient-mobile">
-                <div className="lg:flex">
-                  <div>
-                    <Heading level={2} size="lg" className="lg:max-w-[574px]">
-                      <Heading.Text variant="secondaryLight">Grab the </Heading.Text>
-                      <Heading.Text variant="primaryLight">American Dragons: Books 4 - 6 </Heading.Text>
-                      <Heading.Text variant="secondaryLight">from amazon</Heading.Text>
-                    </Heading>
+        <section className="mt-20 lg:mt-[100px] mb-20 lg:mb-[120px] px-6">
+          <div className="container ">
+            <div className="bg-bundle-bg-1-3 bg-cover bg-no-repeat rounded-md max-lg:bg-right-top">
+              <div className="p-10 md:p-inner bg-bundle-gradient rounded-md flex max-lg:flex-col justify-between">
+                <div className="flex flex-col justify-between">
+                  <Heading level={2} size="lg" className="max-w-[574px]">
+                    <Heading.Text variant="secondaryLight">grab the </Heading.Text>
+                    <Heading.Text variant="primaryLight">American Dragons: Books 1 - 3 </Heading.Text>
+                    <Heading.Text variant="secondaryLight">from amazon</Heading.Text>
+                  </Heading>
 
-                    <Button link="https://a.co/d/5QTP0x2" target="_blank" className="mt-8 lg:mt-[183px] w-full lg:w-fit hover:shadow-[5px_5px_20px_#cccccc80] transition duration-200" size="small" variant="primaryLight">
-                      Buy now
-                    </Button>
-                  </div>
-                  <div className="max-lg:mt-[56px] relative lg:w-1/2 lg:flex lg:justify-end">
-                    <Image className="max-lg:m-auto lg:absolute top-0 " src="/assets/images/bundle_books.webp" alt="bundle-book" width={363} height={486} />
-                  </div>
+                  {/* <p className="mt-inner text-primary text-[80px] leading-[72px]"></p> */}
+                  <Button link="https://a.co/d/e4tsqvT" target="_blank" className="mt-8 max-lg:mb-14 lg:mt-auto lg:max-w-[100px] hover:shadow-[5px_5px_20px_#000000] transition duration-200" size="small" variant="primaryLight">
+                    buy now
+                  </Button>
                 </div>
+                <Image className="max-lg:m-auto" alt="book bundle" src={"/assets/images/bundle-1-3.webp"} width={355} height={486} />
               </div>
             </div>
           </div>

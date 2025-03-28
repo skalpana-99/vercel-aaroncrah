@@ -56,7 +56,7 @@ export default function Page() {
 
               <SocialCard image={{ src: "/assets/images/amazon.png", alt: "amazon", width: 76, height: 24 }} title={{ small: "visit my ", large: "amazon author page" }} btnProperties={{ text: "View profile", link: "https://www.amazon.com/stores/Aaron-Crash/author/B078R5NXMS?ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true" }} featuredImage={{ src: "/assets/images/amazon-white.png", alt: "amazon-large", width: 168, height: 180, position: 0 }} />
 
-              <SocialCard image={{ src: "/assets/images/royal-road.png", alt: "royal-road", width: 164, height: 24 }} title={{ small: "read my stories on ", large: "royal road" }} btnProperties={{ text: "read now", link: "https://www.royalroad.com/profile/604342" }} featuredImage={{ src: "/assets/images/royal-road-white.png", alt: "royal-road-large", width: 165, height: 152, position: 11 }} />
+              <SocialCard image={{ src: "/assets/images/royal-road.png", alt: "royal-road", width: 164, height: 24 }} title={{ small: "read my stories on ", large: "royal road" }} btnProperties={{ text: "read now", link: "https://www.royalroad.com/profile/604342/fictions" }} featuredImage={{ src: "/assets/images/royal-road-white.png", alt: "royal-road-large", width: 165, height: 152, position: 11 }} />
             </div>
           </div>
         </div>
@@ -64,7 +64,7 @@ export default function Page() {
 
       <section className="mt-inner max-sm:mb-[100px] lg:mb-[90px] lg:mt-lg">
         <div className="container xl:px-0 px-[24px]">
-          <Newsletter background="bg-gradient-to-r" secondaryTitle="Join my newsletter to receive a " primaryTitle="free digital copy of " highlightTitle="Time Jacker" coverImage="/assets/images/newsletter_cover.webp" />
+          <Newsletter background="bg-gradient-to-r" secondaryTitle="Want a Free Book? " primaryTitle="Download " highlightTitle="Time Jacker " coverImage="/assets/images/newsletter_cover.webp" />
         </div>
       </section>
     </>
