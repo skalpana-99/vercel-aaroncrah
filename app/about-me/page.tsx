@@ -61,17 +61,17 @@ export default async function Page() {
                 </Heading>
                 <div className="pt-8  text-white text-md">
                   <ol className="list-[auto] text-md font-light leading-[28px]">
-                    <li className="relative pl-5 pb-2">He used to run triathlons. Mostly he did Spring and Olympic Triathlons, but he did do a half Iron Man before he signed his first publishing contract and committed to a life writing books.</li>
-                    <li className="relative pl-5 pb-2">He's a huge Stephen King fan, and he loves THE DARK TOWER series.</li>
-                    <li className="relative pl-5 pb-2">He used to be a coffee shop writer, but then he transitioned to writing at home with a second monitor showing video game footage (cut scenes, trailers, and game music videos), or fashion videos (who doesn't love scantily clad women?), or ASMR camping videos (girls out in the wild). A few of his favorite YouTube channels are JackersEdit, MathChief, Black Tape Project, Camping Girls, and Karina Wild.</li>
-                    <li className="relative pl-5 pb-2">He's a terrible sleeper. When he can't sleep, he imagines he's inside one of his novels. He loves the house on Lonetree Ridge in LAND OF THE LUST, the little blue house in RAGE KING, and the Infinity Ranch in AMERICAN DRAGONS.</li>
-                    <li className="relative pl-5 ">He has this really big group of friends from high school that he's still tight with. Three of his ex-girlfriends were at his wedding.</li>
-                    <li className="relative pl-5 pb-2">He doesn't mind really old decaf coffee.</li>
-                    <li className="relative pl-5 pb-2">He likes deer hunting, but his favorite part is going on hikes with a rifle over he shoulder. He sleeps so good at deer camp.</li>
-                    <li className="relative pl-5 pb-2">He didn't really start watching the Denver Broncos until he moved back to Colorado. Now, he never misses a game. His favorite Bronco season of all time is the 2011/2012 season when Tim Tebow (but mostly the defense) took them to the playoffs.</li>
-                    <li className="relative pl-5 pb-2">He used to support medical software, and he's been in operating rooms, smelling the Bovie, hearing the saws, while troubleshooting anesthesia documentation software. There is good naked and bad naked. Hospital naked is rarely good naked.</li>
-                    <li className="relative pl-5 pb-2">He owns five bikes. Four of the bikes were given to him. He only bought one, his XXL mountain bike, which he got used. It's the most comfortable bike he's ever owned. He calls it The Cadillac.</li>
-                    <li className="relative pl-5 pb-2">After his mom passed, he committed to learning to play the guitar in her honor. He can play songs with eighth notes. He's a musical genius.</li>
+                    <li className="relative pl-2 pb-2">He used to run triathlons. Mostly he did Spring and Olympic Triathlons, but he did do a half Iron Man before he signed his first publishing contract and committed to a life writing books.</li>
+                    <li className="relative pl-2 pb-2">He's a huge Stephen King fan, and he loves THE DARK TOWER series.</li>
+                    <li className="relative pl-2 pb-2">He used to be a coffee shop writer, but then he transitioned to writing at home with a second monitor showing video game footage (cut scenes, trailers, and game music videos), or fashion videos (who doesn't love scantily clad women?), or ASMR camping videos (girls out in the wild). A few of his favorite YouTube channels are JackersEdit, MathChief, Black Tape Project, Camping Girls, and Karina Wild.</li>
+                    <li className="relative pl-2 pb-2">He's a terrible sleeper. When he can't sleep, he imagines he's inside one of his novels. He loves the house on Lonetree Ridge in LAND OF THE LUST, the little blue house in RAGE KING, and the Infinity Ranch in AMERICAN DRAGONS.</li>
+                    <li className="relative pl-2 ">He has this really big group of friends from high school that he's still tight with. Three of his ex-girlfriends were at his wedding.</li>
+                    <li className="relative pl-2 pb-2">He doesn't mind really old decaf coffee.</li>
+                    <li className="relative pl-2 pb-2">He likes deer hunting, but his favorite part is going on hikes with a rifle over he shoulder. He sleeps so good at deer camp.</li>
+                    <li className="relative pl-2 pb-2">He didn't really start watching the Denver Broncos until he moved back to Colorado. Now, he never misses a game. His favorite Bronco season of all time is the 2011/2012 season when Tim Tebow (but mostly the defense) took them to the playoffs.</li>
+                    <li className="relative pl-2 pb-2">He used to support medical software, and he's been in operating rooms, smelling the Bovie, hearing the saws, while troubleshooting anesthesia documentation software. There is good naked and bad naked. Hospital naked is rarely good naked.</li>
+                    <li className="relative pl-2 pb-2">He owns five bikes. Four of the bikes were given to him. He only bought one, his XXL mountain bike, which he got used. It's the most comfortable bike he's ever owned. He calls it The Cadillac.</li>
+                    <li className="relative pl-2 pb-2">After his mom passed, he committed to learning to play the guitar in her honor. He can play songs with eighth notes. He's a musical genius.</li>
                   </ol>
                 </div>
               </div>
