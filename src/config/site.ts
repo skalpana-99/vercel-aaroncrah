@@ -67,8 +67,8 @@ export const siteConfig = {
     },
     {
       id: 6,
-      label: "Links",
-      path: "/links",
+      label: "Contact",
+      path: "/contact",
     },
   ]
 } as const;

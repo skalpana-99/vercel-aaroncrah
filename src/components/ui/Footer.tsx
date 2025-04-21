@@ -21,13 +21,13 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link className="underline leading-8" href="visual-novel">
+                  <Link className="underline leading-8" href="/visual-novel">
                     Visual Novel
                   </Link>
                 </li>
                 <li>
-                  <Link className="underline leading-8" href="links">
-                    Links
+                  <Link className="underline leading-8" href="/contact">
+                    Contact
                   </Link>
                 </li>
               </ul>

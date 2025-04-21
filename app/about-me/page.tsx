@@ -1,4 +1,4 @@
-import { ContactForm } from "@/components/ui/ContactForm";
+import { JoinArcForm } from "@/components/ui/JoinArcForm";
 import HeaderV2 from "@/components/ui/HeaderV2";
 import Heading from "@/components/ui/Heading";
 import { Newsletter } from "@/components/ui/Newsletter";
@@ -112,7 +112,7 @@ export default async function Page() {
         </Heading>
 
         <div className="max-w-[576px] mx-auto mt-[24px] md:mt-[56px] xl:px-0 px-[24px]">
-          <ContactForm />
+          <JoinArcForm />
         </div>
       </section>
 

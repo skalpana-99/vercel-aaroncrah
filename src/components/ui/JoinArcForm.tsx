@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "./Button";
-import { createContact } from "@/actions/createContact";
+import { createArcJoiner } from "@/actions/createJoiner";
 import { useFormState } from "react-dom";
 import { getCountry } from "@/utils/helpers";
 import { useEffect, useState } from "react";
@@ -12,8 +12,8 @@ const initialState = {
   error: "",
 };
 
-export function ContactForm() {
-  const [state, createEntry] = useFormState(createContact, initialState);
+export function JoinArcForm() {
+  const [state, createEntry] = useFormState(createArcJoiner, initialState);
 
   console.log(state);
 
@@ -43,6 +43,9 @@ export function ContactForm() {
           <input required className="w-full h-[52px] bg-mute-3 uppercase focus:outline-none focus:ring-0 focus:border-mute-2 border-mute-2 text-mute placeholder:text-mute" name="email" type="text" placeholder="Email" />
         </div>
         <div>
+          <input required className="w-full h-[52px] bg-mute-3 uppercase focus:outline-none focus:ring-0 focus:border-mute-2 border-mute-2 text-mute placeholder:text-mute" name="favorite-book" type="text" placeholder="What's your favorite Aaron Crash book?" />
+        </div>
+        <div>
           <textarea required className="w-full  bg-mute-3 focus:outline-none uppercase resize-none focus:ring-0 focus:border-mute-2 border-mute-2 text-mute placeholder:text-mute" name="message" placeholder="your message here" rows={8}></textarea>
         </div>
       </div>
@@ -54,7 +57,7 @@ export function ContactForm() {
           Submit
         </Button>
         {/* Success/Error Message */}
-        {state?.message ?? <p className="mt-4 text-center text-base font-light text-[#3ede75] uppercase">{state?.message}</p>}
+        <p className="mt-4 text-center text-base font-light text-[#3ede75] uppercase">{state?.message}</p>
       </div>
     </form>
   );

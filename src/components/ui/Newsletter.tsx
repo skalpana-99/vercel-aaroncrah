@@ -88,11 +88,11 @@ export function Newsletter({ secondaryTitle, primaryTitle, highlightTitle, highl
         </Heading>
 
         <div className="mt-10">
-          <Button variant="primaryLight" size="full" className="mt-2 md:mt-[115px] hover:shadow-[5px_5px_20px_#00000080] transition duration-200">
+          <Button target="_blank" link={"https://dl.bookfunnel.com/kqleo5199q"} variant="primaryLight" size="full" className="mt-2 md:mt-[115px] hover:shadow-[5px_5px_20px_#00000080] transition duration-200">
             <span>Download Now</span>
           </Button>
           <p className="text-white font-light pt-[21px] leading-[28px]">
-            When you download Time Jacker, you are signing up for Aaron Crash’s email newsletter.
+            When you download Time Jacker, you are signing up for Aaron Crash's email newsletter.
             <br /> Unsubscribe anytime.
           </p>
         </div>

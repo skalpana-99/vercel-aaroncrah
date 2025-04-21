@@ -54,7 +54,7 @@ export default async function VisualNovel() {
               <br />
               <br /> But his most powerful partner just might be the beautiful but ruthless burglar he's been pursuing for years.
             </p>
-            <Button className="text-primary font-normal text-[18px] m-auto cursor-default leading-8 py-[0px] px-[0px]">Coming March 2025</Button>
+            <Button className="text-primary font-normal text-[18px] m-auto cursor-default leading-8 py-[0px] px-[0px]">Coming May 2025</Button>
           </div>
         </div>
       </section>
@@ -63,7 +63,8 @@ export default async function VisualNovel() {
         <div className="container xl:px-0 w-[90%] flex flex-col lg:flex-row justify-between">
           <div className="lg:max-w-[792px] lg:w-[65%]">
             <h2 className="text-[40px] md:text-[56px] leading-[56px] md:leading-[80px] font-normal text-[#22B1E9] uppercase mb-6 md:mb-10">
-              An experience unlike <br className="hidden lg:block" /> any other!
+              An experience
+              <br className="hidden lg:block" /> unlike any other!
             </h2>
             <p className="text-[24px] md:text-[32px] leading-[40px] md:leading-[56px] font-light text-[#8A8A8A]">
               <span className="uppercase font-normal text-[#161616]">MASK CITY</span> is an interactive Adult Visual Novel with mind-blowing art, sexy scenes, and a fully immersive experience where story, art, sound, and music let you be the spicy superhero you've always wanted to be.
@@ -74,15 +75,8 @@ export default async function VisualNovel() {
           </div>
 
           <div className="max-lg:aspect-[747/1012]">
-            <Image className="absolute lg:right-0 lg:top-14 lg:max-w-[508px] w-[95%] lg:w-[35vw]" src="/assets/images/hero-girl-4.png" alt="lady hero" width={508} height={688} />
+            <Image className="absolute lg:right-0 lg:top-14 lg:max-w-[508px] w-[95%] lg:w-[35vw]" src="/assets/images/hero_5.png" alt="lady hero" width={508} height={688} />
           </div>
-        </div>
-      </section>
-
-      {/* newsletter section */}
-      <section className=" mb-0 md:mb-[80px] max-sm:pb-[60px]">
-        <div className="container xl:px-0 px-[24px]">
-          <Newsletter background="bg-hero-tab-blur" secondaryTitle="Want a Free Book? " primaryTitle="Download " highlightTitle="Time Jacker " highlightStyle="!text-light font-light" coverImage="/assets/images/hero-tablet-fixed.webp" coverStyle="md:top-[54px]" mobileBg="max-sm:bg-black/20" />
         </div>
       </section>
     </div>
