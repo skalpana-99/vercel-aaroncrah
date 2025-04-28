@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
 // Define interfaces for props and form state
-interface NewsletterProps {
+interface NewsletterProps { 
   secondaryTitle?: string;
   primaryTitle?: string;
   highlightTitle?: string;
