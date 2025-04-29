@@ -46,9 +46,9 @@ export function ContactForm() {
           <textarea required className="w-full  bg-mute-3 focus:outline-none uppercase resize-none focus:ring-0 focus:border-mute-2 border-mute-2 text-mute placeholder:text-mute" name="message" placeholder="your message here" rows={8}></textarea>
         </div>
       </div>
-      <div className="mt-4">
+      {/* <div className="mt-4">
         <ReCAPTCHA style={{ display: "inline-block" }} theme="light" sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""} onChange={handleChange} />
-      </div>
+      </div> */}
       <div>
         <Button type="submit" variant="primary" size="full" className="mt-8">
           Submit

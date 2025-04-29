@@ -56,7 +56,23 @@ export default function HomePage() {
           <Image className="mx-auto max-sm:min-h-[500px] max-sm:object-cover max-sm:object-right" src="/assets/images/hero_3.webp" alt="hero" width={3840} height={2700} priority />
           <div className="py-8 px-[22px] w-full backdrop-blur-[100px] absolute flex justify-center bottom-0 left-1/2 -translate-x-1/2">
             <div className="container">
-              <Image className="" src="/assets/images/banner_text.webp" alt="blur_banner" width={2400} height={408} />
+              <div className="flex justify-between">
+                <div>
+                  <span className="xl:text-[100px] text-primary md:text-[60px] text-[32px]">
+                    CRASH <span className="font-light text-white">IT.</span>
+                  </span>
+                </div>
+                <div>
+                  <span className="xl:text-[100px] text-primary md:text-[60px] text-[32px]">
+                    CRUSH <span className="font-light text-white">IT.</span>
+                  </span>
+                </div>
+                <div>
+                  <span className="xl:text-[100px] text-primary md:text-[60px] text-[32px]">
+                    LOVE <span className="font-light text-white">IT.</span>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

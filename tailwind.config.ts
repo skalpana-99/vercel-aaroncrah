@@ -12,25 +12,41 @@ const config: Config = {
         "2xl": "1200px",
       },
     },
+    screens: {
+      exsm: { max: "370px" },
+      sm: "640px",
+      // => @media (min-width: 640px) { ... }
+
+      md: "768px",
+      // => @media (min-width: 768px) { ... }
+
+      lg: "1024px",
+      // => @media (min-width: 1024px) { ... }
+
+      xl: "1280px",
+      // => @media (min-width: 1280px) { ... }
+
+      "2xl": "1536px",
+      // => @media (min-width: 1536px) { ... }
+    },
     extend: {
       colors: {
         primary: "var(--color-primary)",
         light: "var(--color-light)",
         dark: "var(--color-dark)",
         menuBackground: "rgba(217, 217, 217, 0.1)",
-        'about-blur-bg-color': "rgb(43 41 66 / 90%)",
-        'bg-about-social': "rgb(255 255 255 / 20%)",
-        'mute-2': "rgb(0 0 0 / 20%)",
-        'mute': "rgb(0 0 0 / 40%)",
-        'mute-3': "rgb(0 0 0 / 5%)",
-
+        "about-blur-bg-color": "rgb(43 41 66 / 90%)",
+        "bg-about-social": "rgb(255 255 255 / 20%)",
+        "mute-2": "rgb(0 0 0 / 20%)",
+        mute: "rgb(0 0 0 / 40%)",
+        "mute-3": "rgb(0 0 0 / 5%)",
       },
       fontFamily: {
-        sans: ['var(--font-oswald)'],
+        sans: ["var(--font-oswald)"],
       },
       fontSize: {
         "24": "24px",
-        "md": "var(--text-medium)",
+        md: "var(--text-medium)",
         "2xs": "var( --heading-secondary)",
       },
       margin: {
@@ -62,20 +78,20 @@ const config: Config = {
         xsm: "var(--xsmall-space)",
       },
       backgroundImage: {
-        'headerV2-bg': "url('/assets/images/header-bg-2.png')",
-        'headerV3-bg': "url('/assets/images/header-bg-3.png')",
-        'headerV3-gradient': 'linear-gradient(#000, 60%, transparent)',
-        'hero-01': "url('/assets/images/hero_bg_re.jpg')",
-        'hero-02': "url('/assets/images/hero-bg-2.webp')",
-        'bundle-bg-book': "url('/assets/images/bundle-bg-books.webp')",
-        'bundle-bg-book-gradient': "linear-gradient(90deg, rgb(0 0 0 / 70%) 0%, rgb(0 0 0 / 60%) 49%, rgba(0, 0, 0, 0) 100%)",
-        'bundle-bg-book-gradient-mobile': "linear-gradient(180deg, rgb(0 0 0 / 70%) 0%, rgb(0 0 0 / 60%) 49%, rgba(0, 0, 0, 0) 100%)",
-        'bundle-bg-1-3': "url('/assets/images/bundle-bg-1-3.webp')",
-        'bundle-gradient': "linear-gradient(90deg, rgb(0 0 0 / 70%) 0%, rgb(0 0 0 / 60%) 49%, rgba(0, 0, 0, 0) 100%)",
-        'hero-tab-blur': "url('/assets/images/hero-tab-blur-bg.png')",
-        'bundle-bg-series': "url('/assets/images/bundle-bg-series.png')",
-        'bundle-series': "url('/assets/images/bundle-books-series.png')",
-        'book-card': "linear-gradient(196deg, #c1c1c1, #efefef)",
+        "headerV2-bg": "url('/assets/images/header-bg-2.png')",
+        "headerV3-bg": "url('/assets/images/header-bg-3.png')",
+        "headerV3-gradient": "linear-gradient(#000, 60%, transparent)",
+        "hero-01": "url('/assets/images/hero_bg_re.jpg')",
+        "hero-02": "url('/assets/images/hero-bg-2.webp')",
+        "bundle-bg-book": "url('/assets/images/bundle-bg-books.webp')",
+        "bundle-bg-book-gradient": "linear-gradient(90deg, rgb(0 0 0 / 70%) 0%, rgb(0 0 0 / 60%) 49%, rgba(0, 0, 0, 0) 100%)",
+        "bundle-bg-book-gradient-mobile": "linear-gradient(180deg, rgb(0 0 0 / 70%) 0%, rgb(0 0 0 / 60%) 49%, rgba(0, 0, 0, 0) 100%)",
+        "bundle-bg-1-3": "url('/assets/images/bundle-bg-1-3.webp')",
+        "bundle-gradient": "linear-gradient(90deg, rgb(0 0 0 / 70%) 0%, rgb(0 0 0 / 60%) 49%, rgba(0, 0, 0, 0) 100%)",
+        "hero-tab-blur": "url('/assets/images/hero-tab-blur-bg.png')",
+        "bundle-bg-series": "url('/assets/images/bundle-bg-series.png')",
+        "bundle-series": "url('/assets/images/bundle-books-series.png')",
+        "book-card": "linear-gradient(196deg, #c1c1c1, #efefef)",
       },
       keyframes: {
         // Add custom keyframes here
