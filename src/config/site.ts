@@ -25,32 +25,32 @@ export const siteConfig = {
           id: 37,
           label: "eBooks",
           path: {
-            pathname: '/books',
-            query: { format: 'ebook' },
+            pathname: "/books",
+            query: { format: "ebook" },
           },
         },
         {
           id: 38,
           label: "Paperbacks",
           path: {
-            pathname: '/books',
-            query: { format: 'print_book_paper_back' },
+            pathname: "/books",
+            query: { format: "print_book_paper_back" },
           },
         },
         {
           id: 39,
           label: "Audiobooks",
           path: {
-            pathname: '/books',
-            query: { format: 'audiobook' },
+            pathname: "/books",
+            query: { format: "audiobook" },
           },
         },
         {
           id: 40,
           label: "All Formats",
           path: {
-            pathname: '/books',
-            query: { format: 'all' },
+            pathname: "/books",
+            query: { format: "all" },
           },
         },
       ],
@@ -70,7 +70,5 @@ export const siteConfig = {
       label: "Contact",
       path: "/contact",
     },
-  ]
+  ],
 } as const;
-
-

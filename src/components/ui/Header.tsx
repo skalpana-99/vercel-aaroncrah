@@ -5,7 +5,6 @@ import { useState } from "react";
 import Search from "./Search";
 import { siteConfig } from "@/config/site";
 import Link from "next/link";
-import Heading from "./Heading";
 
 export default function Header({ isHome }: { isHome?: boolean }) {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -60,13 +59,7 @@ export default function Header({ isHome }: { isHome?: boolean }) {
           </div>
           <div className="flex items-center ">
             <Link href="/">
-              <Heading className="text-[32px] lg:text-[33px] font-bold text-white" level={2}>
-                <Heading.Text variant={"secondaryLight"}>Aaron</Heading.Text>
-                <Heading.Text variant={"primaryLight"} className="font-normal">
-                  {" "}
-                  Crash
-                </Heading.Text>
-              </Heading>
+              <Image className="max-sm:max-w-[160px]" src="/assets/images/logo.png" alt="Logo" width={174} height={32} />
             </Link>
 
             <ul className="text-[18px] pt-2 hidden lg:flex gap-8 text-[#bbbbbb] lg:ml-[100px] xl:ml-[150px]">

@@ -1,60 +1,45 @@
 "use client";
 
-import { Button } from "./Button";
-import { createContact } from "@/actions/createContact";
 import { useFormState } from "react-dom";
-import { getCountry } from "@/utils/helpers";
-import { useEffect, useState } from "react";
+import { createContact } from "@/actions/createContact";
+import { Button } from "./Button";
+import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const initialState = {
   message: "",
-  error: "",
 };
 
 export function ContactForm() {
-  const [state, createEntry] = useFormState(createContact, initialState);
+  const [state, formAction] = useFormState(createContact, initialState);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
-  console.log(state);
+  const handleRecaptchaChange = (token: string | null) => {
+    setRecaptchaToken(token);
+  };
 
-  const [country, setCountry] = useState("");
-  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
-
-  function handleChange(value: string | null) {
-    setCaptchaValue(value);
-  }
-
-  useEffect(() => {
-    async function getCountryClientSide() {
-      const clientCountry = await getCountry();
-      setCountry(clientCountry);
-    }
-    getCountryClientSide();
-  }, []);
   return (
-    <form action={createEntry}>
+    <form action={formAction}>
       <div className="flex flex-col gap-xsm">
+        <input type="hidden" name="recaptchaToken" value={recaptchaToken || ""} />
         <div>
-          <input type="hidden" name="country" value={country} />
-          <input type="hidden" name="recaptchaToken" value={captchaValue || ""} />
           <input required className="w-full h-[52px] bg-mute-3 uppercase focus:outline-none focus:ring-0 focus:border-mute-2 border-mute-2 text-mute placeholder:text-mute" type="text" name="name" placeholder="Name" />
         </div>
         <div>
-          <input required className="w-full h-[52px] bg-mute-3 uppercase focus:outline-none focus:ring-0 focus:border-mute-2 border-mute-2 text-mute placeholder:text-mute" name="email" type="text" placeholder="Email" />
+          <input required className="w-full h-[52px] bg-mute-3 uppercase focus:outline-none focus:ring-0 focus:border-mute-2 border-mute-2 text-mute placeholder:text-mute" name="email" type="email" placeholder="Email" />
         </div>
         <div>
-          <textarea required className="w-full  bg-mute-3 focus:outline-none uppercase resize-none focus:ring-0 focus:border-mute-2 border-mute-2 text-mute placeholder:text-mute" name="message" placeholder="your message here" rows={8}></textarea>
+          <textarea required className="w-full bg-mute-3 focus:outline-none uppercase resize-none focus:ring-0 focus:border-mute-2 border-mute-2 text-mute placeholder:text-mute" name="message" placeholder="Your message here" rows={8}></textarea>
         </div>
       </div>
-      {/* <div className="mt-4">
-        <ReCAPTCHA style={{ display: "inline-block" }} theme="light" sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""} onChange={handleChange} />
-      </div> */}
+      <div className="mt-4">
+        <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
+      </div>
       <div>
         <Button type="submit" variant="primary" size="full" className="mt-8">
           Submit
         </Button>
-        {/* Success/Error Message */}
-        {state?.message ?? <p className="mt-4 text-center text-base font-light text-[#3ede75] uppercase">{state?.message}</p>}
+        {state?.message && <p className="mt-4 text-center text-base font-light text-[#3ede75] uppercase">{state.message}</p>}
       </div>
     </form>
   );

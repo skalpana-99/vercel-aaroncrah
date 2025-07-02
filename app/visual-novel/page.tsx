@@ -59,12 +59,11 @@ export default async function VisualNovel() {
         </div>
       </section>
 
-      <section className="pt-20 pb-[100px] md:pt-[120px] xl:pb-[190px] max-w-[1440px] lg:relative mx-auto">
+      <section className="pt-20 pb-[0px] md:pt-[120px] xl:pb-[190px] max-w-[1440px] lg:relative mx-auto">
         <div className="container xl:px-0 w-[90%] flex flex-col lg:flex-row justify-between">
           <div className="lg:max-w-[792px] lg:w-[65%]">
             <h2 className="text-[40px] md:text-[56px] leading-[56px] md:leading-[80px] font-normal text-[#22B1E9] uppercase mb-6 md:mb-10">
-              An experience
-              <br className="hidden lg:block" /> unlike any other!
+              An experience unlike <br className="hidden lg:block" /> any other!
             </h2>
             <p className="text-[24px] md:text-[32px] leading-[40px] md:leading-[56px] font-light text-[#8A8A8A]">
               <span className="uppercase font-normal text-[#161616]">MASK CITY</span> is an interactive Adult Visual Novel with mind-blowing art, sexy scenes, and a fully immersive experience where story, art, sound, and music let you be the spicy superhero you've always wanted to be.
@@ -78,6 +77,11 @@ export default async function VisualNovel() {
             <Image className="absolute lg:right-0 lg:top-14 lg:max-w-[508px] w-[95%] lg:w-[35vw]" src="/assets/images/hero_5.png" alt="lady hero" width={508} height={688} />
           </div>
         </div>
+      </section>
+
+      {/* newsletter section */}
+      <section className=" mb-0 md:mb-[80px] max-sm:pb-[60px]">
+        <div className="container xl:px-0 px-[24px]"></div>
       </section>
     </div>
   );

@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
 // Define interfaces for props and form state
-interface NewsletterProps { 
+interface NewsletterProps {
   secondaryTitle?: string;
   primaryTitle?: string;
   highlightTitle?: string;
@@ -92,7 +92,7 @@ export function Newsletter({ secondaryTitle, primaryTitle, highlightTitle, highl
             <span>Download Now</span>
           </Button>
           <p className="text-white font-light pt-[21px] leading-[28px]">
-            When you download Time Jacker, you are signing up for Aaron Crash's email newsletter.
+            When you download Time Jacker, you are signing up for Aaron Crash’s email newsletter.
             <br /> Unsubscribe anytime.
           </p>
         </div>

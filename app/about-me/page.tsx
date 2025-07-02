@@ -1,6 +1,7 @@
-import { JoinArcForm } from "@/components/ui/JoinArcForm";
+import { ContactForm } from "@/components/ui/ContactForm";
 import HeaderV2 from "@/components/ui/HeaderV2";
 import Heading from "@/components/ui/Heading";
+import { JoinArcForm } from "@/components/ui/JoinArcForm";
 import { Newsletter } from "@/components/ui/Newsletter";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -44,18 +45,17 @@ export default async function Page() {
       <HeaderV2 />
       <section className="mt-[56px] lg:mt-lg">
         <div className="container xl:px-0 px-[24px]">
-          <Image className="hidden sm:block" src="/assets/images/about_aaron.webp" width={1200} height={565} alt="about-aaron" />
-          <Image className="block sm:hidden" src="/assets/images/about_aaron_mobile.jpg" width={1200} height={565} alt="about-aaron" />
-          <div className="py-[56px] max-sm:pb-sm md:py-inner px-sm md:px-[102px] bg-slate-400 relative rounded-b-md">
-            <Image src="/assets/images/about_bg_aaron.webp" alt="blur-background" fill objectFit="cover" className="z-10  rounded-b-md" />
-            <div className="absolute w-full h-[100.1%] bg-about-blur-bg-color left-0 top-[-2px] z-20 backdrop-blur-[100px] rounded-b-md"></div>
+          <div className="py-[56px] max-sm:pb-sm md:py-inner px-sm md:px-[102px] bg-slate-400 relative rounded-md">
+            <Image src="/assets/images/about_bg_aaron.webp" alt="blur-background" fill objectFit="cover" className="z-10  rounded-md" />
+            <div className="absolute w-full h-[100.1%] bg-about-blur-bg-color left-0 top-[-2px] z-20 backdrop-blur-[100px] rounded-md"></div>
             <div className="relative z-50">
               <Heading level={1} variant="primaryLight" size="lg" className="text-center max-sm:text-[40px] max-sm:leading-[56px]">
                 About aaron crash
               </Heading>
-              <p className="pt-xsm text-center font-light leading-[28px] text-white text-md">Aaron Crash is the bestselling author of a high-octane men's adventure novels that are filled with action of all kinds. Since the third grade, when he read A PRINCESS OF MARS, he's dreamed of being an author. He grew up in Colorado but mostly stayed home to read and play video games. Later in life, he realized he loved hiking and mountain biking and some of his best ideas come when he's on the trail. Aaron writes spicy adventures where good guys destroy douchebag villains to get harems of beautiful women so they can all live happily ever after.</p>
 
-              <div className="pt-[56px]">
+              <p className="pt-xsm text-center font-light leading-[28px] text-white text-md">Aaron Crash is the bestselling author of a high-octane men's adventure novels that are filled with action of all kinds. Since the third grade, when he read A PRINCESS OF MARS, he's dreamed of being an author. He grew up in Colorado but mostly stayed home to read and play video games. Later in life, he realized he loved hiking and mountain biking and some of his best ideas come when he's on the trail. Aaron writes spicy adventures where good guys destroy douchebag villains to get harems of beautiful women so they can all live happily ever after.</p>
+              <Image className="mx-auto mt-[56px]" src="/assets/images/about_aaron.png" width={792} height={501} alt="about-aaron" />
+              <div className="pt-[60px]">
                 <Heading level={2} variant="primaryLight" size="md" className="text-center max-sm:text-[32px] max-sm:leading-[44px]">
                   11 Weird Things About Aaron Crash
                 </Heading>

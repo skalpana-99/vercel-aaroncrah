@@ -125,15 +125,6 @@ export default async function SingleBookPage({ params }: PageProps) {
                   </a>
                 );
               })}
-              {/* if book is huntress of kshaul */}
-              {bookId == 38 && (
-                <a href={"https://a.co/d/ed8T3O7"} target="_blank" className="lg:w-fit">
-                  <div className="uppercase flex gap-3 bg-[#F2F2F2] pt-5 pb-4 pl-5 pr-6 hover:bg-[#aeaeae]">
-                    <Image width={32} height={32} alt="amazon logo" src="/assets/images/amazon-logo-small.png" />
-                    Hardcover
-                  </div>
-                </a>
-              )}
             </div>
             <hr className="mt-auto" />
           </div>

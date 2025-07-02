@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Heading from "./Heading";
 
 export default function Footer() {
   return (
@@ -8,15 +7,7 @@ export default function Footer() {
       <div className="container mx-auto">
         <div className="grid gap-[42px]">
           <div className="flex flex-col items-center gap-[24px]">
-            <Link href="/">
-              <Heading className="text-[32px] lg:text-[33px] font-bold text-white" level={2}>
-                <Heading.Text variant={"secondaryLight"}>Aaron</Heading.Text>
-                <Heading.Text variant={"primaryLight"} className="font-normal">
-                  {" "}
-                  Crash
-                </Heading.Text>
-              </Heading>
-            </Link>
+            <Image src="/assets/images/logo.png" alt="Logo" width={174} height={40} />
             <div className="flex ">
               <ul className="text-white flex flex-col md:flex-row gap-xsm md:gap-sm uppercase text-[18px] font-light max-sm:text-center">
                 <li>
@@ -30,12 +21,12 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link className="underline leading-8" href="/visual-novel">
+                  <Link className="underline leading-8" href="visual-novel">
                     Visual Novel
                   </Link>
                 </li>
                 <li>
-                  <Link className="underline leading-8" href="/contact">
+                  <Link className="underline leading-8" href="contact">
                     Contact
                   </Link>
                 </li>

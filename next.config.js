@@ -31,6 +31,11 @@ const nextConfig = {
     optimizeCss: true,
     scrollRestoration: true,
   },
+
+  //TODO::This is a temporary check. Remove this. Image should be optimized.
+  images: {
+    unoptimized: true,
+  }
 };
 
 module.exports = nextConfig;

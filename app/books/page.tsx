@@ -71,19 +71,21 @@ export default async function BooksPage() {
         </div>
       </section>
 
+      {/* dfgfg */}
       <section className="mt-20 lg:mt-[100px] mb-20 lg:mb-[40px] px-6">
         <div className="container ">
           <div className="bg-bundle-bg-1-3 bg-cover bg-no-repeat rounded-md max-lg:bg-right-top">
             <div className="p-10 md:p-inner bg-bundle-gradient rounded-md flex max-lg:flex-col justify-between">
               <div className="flex flex-col justify-between">
                 <Heading level={2} size="lg" className="max-w-[574px]">
-                  <Heading.Text variant="secondaryLight">Grab the </Heading.Text>
+                  <Heading.Text variant="secondaryLight">grab the </Heading.Text>
                   <Heading.Text variant="primaryLight">American Dragons: Books 1 - 3 </Heading.Text>
                   <Heading.Text variant="secondaryLight">from amazon</Heading.Text>
                 </Heading>
 
+                {/* <p className="mt-inner text-primary text-[80px] leading-[72px]"></p> */}
                 <Button link="https://a.co/d/e4tsqvT" target="_blank" className="mt-8 max-lg:mb-14 lg:mt-auto lg:max-w-[100px] hover:shadow-[5px_5px_20px_#000000] transition duration-200" size="small" variant="primaryLight">
-                  Buy now
+                  buy now
                 </Button>
               </div>
               <Image className="max-lg:m-auto" alt="book bundle" src={"/assets/images/bundle-1-3.webp"} width={355} height={486} />
