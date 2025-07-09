@@ -14,36 +14,9 @@ export async function createContact(
   const name = incomingFormData.get("name")?.toString().trim();
   const email = incomingFormData.get("email")?.toString().trim();
   const message = incomingFormData.get("message")?.toString().trim();
-  const recaptchaToken = incomingFormData.get("recaptchaToken")?.toString();
-
 
   if (!name || !email || !message) {
     return { message: "Please fill out all fields." };
-  }
-
-  if (!recaptchaToken) {
-    return { message: "Please complete the reCAPTCHA." };
-  }
-
-  const secretKey = process.env.NEXT_RECAPTCHA_SECRET_KEY;
-  if (!secretKey) {
-    console.error("reCAPTCHA secret key is not set");
-    return { message: "Server configuration error." };
-  }
-
-  const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${recaptchaToken}`;
-
-  try {
-    const captchaResponse = await fetch(verificationUrl, { method: "POST" });
-    const captchaData = await captchaResponse.json();
-
-    if (!captchaData.success) {
-      console.error("reCAPTCHA verification failed:", captchaData["error-codes"]);
-      return { message: "reCAPTCHA failed. Please try again." };
-    }
-  } catch (e) {
-    console.error("Error during reCAPTCHA verification:", e);
-    return { message: "Could not verify reCAPTCHA. Check server logs." };
   }
 
   const mailgun = new Mailgun(formData);
