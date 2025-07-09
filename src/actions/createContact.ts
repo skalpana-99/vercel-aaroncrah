@@ -15,6 +15,16 @@ export async function createContact(
   const email = incomingFormData.get("email")?.toString().trim();
   const message = incomingFormData.get("message")?.toString().trim();
 
+  const secretKey = process.env.NEXT_RECAPTCHA_SECRET_KEY;
+  const mailerLiteKey = process.env.NEXT_MAILERLITE_KEY;
+  const mailgunDomain = process.env.MAILGUN_DOMAIN;
+  const mailgunAPI = process.env.MAILGUN_API_KEY;
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+  const groupId = process.env.NEXT_ARC_FORM_GROUP_ID;
+
+  console.log(secretKey, mailerLiteKey, mailgunDomain, mailgunAPI, siteKey, groupId);
+  
+
   if (!name || !email || !message) {
     return { message: "Please fill out all fields." };
   }
